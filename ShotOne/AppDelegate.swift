@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        configureAppearance()
+        
         window?.rootViewController = MainViewController()
         window?.makeKeyAndVisible()
         
@@ -23,3 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// MARK: - Appearance
+
+private extension AppDelegate {
+    
+    func configureAppearance() {
+        CurrencyView.appearance().configure()
+    }
+    
+}
