@@ -65,6 +65,11 @@ class MainViewController: UIViewController {
         return view
     }()
     
+    // MARK: - Transactions Panel
+    
+    let transactionsPanel = BottomPanel(contentViewController: TransactionsViewController(),
+                                        positions: [.custom(value: 100), .custom(value: 400)])
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -72,6 +77,11 @@ class MainViewController: UIViewController {
         
         addViews()
         configure()
+        addBottomSheet()
+    }
+    
+    func addBottomSheet() {
+        transactionsPanel.embed(in: self)
     }
 
     // MARK: - Overrides
