@@ -104,7 +104,8 @@ class CurrencyView: BaseView {
     
     private lazy var backgroundLayer: CAGradientLayer = {
         let layer = CAGradientLayer()
-        
+
+        layer.contentsScale = UIScreen.main.nativeScale
         layer.cornerRadius = Defaults.Background.cornerRadius
         layer.set(colors: Defaults.Background.colors)
         
@@ -116,6 +117,7 @@ class CurrencyView: BaseView {
     private lazy var barLayer: CALayer = {
         let layer = CALayer()
         
+        layer.contentsScale = UIScreen.main.nativeScale
         layer.cornerRadius = Defaults.Bar.cornerRadius
         layer.set(barColor: Defaults.Bar.color)
         
@@ -283,17 +285,17 @@ private extension CurrencyView {
     }
     
     func layoutTitleLabel() {
-        titleLabel.activate(
-            titleLabel.widthAnchor.constraint(equalTo: widthAnchor),
+        titleLabel.activate {[
+            $0.widthAnchor.constraint(equalTo: widthAnchor),
             titleBottomConstraint
-        )
+        ]}
     }
     
     func layoutValueLabel() {
-        valueLabel.activate(
-            valueLabel.widthAnchor.constraint(equalTo: widthAnchor),
+        valueLabel.activate {[
+            $0.widthAnchor.constraint(equalTo: widthAnchor),
             valueCenterYConstraint
-        )
+        ]}
     }
     
 }

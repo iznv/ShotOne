@@ -24,7 +24,6 @@
 		2C557CB52251523600525361 /* CALayer+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C557CB42251523600525361 /* CALayer+Layout.swift */; };
 		2C557CB8225152DC00525361 /* BoundsHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C557CB7225152DC00525361 /* BoundsHolder.swift */; };
 		2C557CBB2251535300525361 /* CAGradientLayer+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C557CBA2251535300525361 /* CAGradientLayer+Colors.swift */; };
-		2C72099C22776D0600EF0ED4 /* BottomPanelPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C72099B22776D0600EF0ED4 /* BottomPanelPosition.swift */; };
 		2C72099F22776EA800EF0ED4 /* CGFloat+Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C72099E22776EA800EF0ED4 /* CGFloat+Sign.swift */; };
 		2C897B50224941E2004523E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C897B4F224941E2004523E3 /* AppDelegate.swift */; };
 		2C897B57224941E4004523E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C897B56224941E4004523E3 /* Assets.xcassets */; };
@@ -35,6 +34,7 @@
 		2C897B7322495366004523E3 /* CGColor+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C897B7222495366004523E3 /* CGColor+UIColor.swift */; };
 		2C897B772249550D004523E3 /* CALayer+AddSublayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C897B762249550D004523E3 /* CALayer+AddSublayers.swift */; };
 		2C897B7B22495A22004523E3 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C897B7A22495A22004523E3 /* UIColor+Hex.swift */; };
+		2C97A1A822889DEA00FF3393 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97A1A722889DEA00FF3393 /* GradientView.swift */; };
 		2CDDAE53226F8592008EB265 /* BottomPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDDAE52226F8592008EB265 /* BottomPanel.swift */; };
 		2CDEBBF3225290DB003BB3A3 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBBF2225290DB003BB3A3 /* TransactionsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -57,7 +57,6 @@
 		2C557CB42251523600525361 /* CALayer+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Layout.swift"; sourceTree = "<group>"; };
 		2C557CB7225152DC00525361 /* BoundsHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundsHolder.swift; sourceTree = "<group>"; };
 		2C557CBA2251535300525361 /* CAGradientLayer+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+Colors.swift"; sourceTree = "<group>"; };
-		2C72099B22776D0600EF0ED4 /* BottomPanelPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPanelPosition.swift; sourceTree = "<group>"; };
 		2C72099E22776EA800EF0ED4 /* CGFloat+Sign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Sign.swift"; sourceTree = "<group>"; };
 		2C897B4C224941E2004523E3 /* ShotOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShotOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C897B4F224941E2004523E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		2C897B7222495366004523E3 /* CGColor+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGColor+UIColor.swift"; sourceTree = "<group>"; };
 		2C897B762249550D004523E3 /* CALayer+AddSublayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+AddSublayers.swift"; sourceTree = "<group>"; };
 		2C897B7A22495A22004523E3 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		2C97A1A722889DEA00FF3393 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		2CDDAE52226F8592008EB265 /* BottomPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPanel.swift; sourceTree = "<group>"; };
 		2CDEBBF2225290DB003BB3A3 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -216,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				2CDDAE52226F8592008EB265 /* BottomPanel.swift */,
-				2C72099B22776D0600EF0ED4 /* BottomPanelPosition.swift */,
 			);
 			path = BottomPanel;
 			sourceTree = "<group>";
@@ -292,6 +291,7 @@
 			children = (
 				2C897B6D22494866004523E3 /* BaseView.swift */,
 				2C897B6B2249479F004523E3 /* CurrencyView.swift */,
+				2C97A1A722889DEA00FF3393 /* GradientView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -464,7 +464,6 @@
 				2C557CA622513D5D00525361 /* CurrencyView+Appearance.swift in Sources */,
 				2C897B7322495366004523E3 /* CGColor+UIColor.swift in Sources */,
 				2C72099F22776EA800EF0ED4 /* CGFloat+Sign.swift in Sources */,
-				2C72099C22776D0600EF0ED4 /* BottomPanelPosition.swift in Sources */,
 				2C557CAC22513EFA00525361 /* UIFont+CustomFont.swift in Sources */,
 				2C0B956E224DEDBB00792ADF /* CALayer+Shadow.swift in Sources */,
 				2CDDAE53226F8592008EB265 /* BottomPanel.swift in Sources */,
@@ -476,6 +475,7 @@
 				2C557CB52251523600525361 /* CALayer+Layout.swift in Sources */,
 				2C897B65224943CD004523E3 /* MainViewController.swift in Sources */,
 				2C557CAF22513F3000525361 /* UIFontWeight+Title.swift in Sources */,
+				2C97A1A822889DEA00FF3393 /* GradientView.swift in Sources */,
 				2C0B956C224DECA600792ADF /* String+Constants.swift in Sources */,
 				2C897B6E22494866004523E3 /* BaseView.swift in Sources */,
 			);

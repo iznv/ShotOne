@@ -9,23 +9,49 @@
 import UIKit
 
 class TransactionsViewController: UIViewController {
-
+    
+    // MARK: - Views
+    
+    lazy var gradientView: GradientView = {
+        let view = GradientView()
+        
+        view.set(colors: [ #colorLiteral(red: 0.1843137255, green: 0.2235294118, blue: 0.3411764706, alpha: 1), #colorLiteral(red: 0.1137254902, green: 0.1215686275, blue: 0.2431372549, alpha: 1) ])
+        
+        return view
+    }()
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configureAppearance()
+
+        addViews()
+        configureConstraints()
     }
     
 }
 
-// MARK: - Private
+// MARK: - Subviews
 
 private extension TransactionsViewController {
     
-    func configureAppearance() {
-        view.backgroundColor = .white
+    func addViews() {
+        view.addSubview(gradientView)
+    }
+    
+}
+
+// MARK: - Constraints
+
+private extension TransactionsViewController {
+    
+    func configureConstraints() {
+        gradientView.activate {[
+            $0.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            $0.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            $0.topAnchor.constraint(equalTo: view.topAnchor),
+            $0.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ]}
     }
     
 }

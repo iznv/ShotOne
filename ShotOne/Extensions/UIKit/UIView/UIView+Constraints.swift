@@ -10,9 +10,9 @@ import UIKit
 
 extension UIView {
     
-    func activate(_ constraints: NSLayoutConstraint...) {
+    func activate(_ constraints: (UIView) -> [NSLayoutConstraint]) {
         translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate(constraints)
+        NSLayoutConstraint.activate(constraints(self))
     }
     
 }

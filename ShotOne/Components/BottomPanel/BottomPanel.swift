@@ -48,11 +48,17 @@ private enum Constants {
 
 class BottomPanel {
     
+    // MARK: - Constraints
+    
+    private var topConstraint: NSLayoutConstraint?
+    
     // MARK: - Properties
     
     private var isOutside = false
     
-    private let positions: [BottomPanelPosition]
+    private var parentViewController: UIViewController?
+    
+    private let positions: [CGFloat]
     
     // MARK: - Content
     
@@ -61,7 +67,7 @@ class BottomPanel {
     // MARK: - Init
     
     init(contentViewController: UIViewController,
-         positions: [BottomPanelPosition]) {
+         positions: [CGFloat]) {
         
         self.contentViewController = contentViewController
         self.positions = positions
@@ -79,6 +85,11 @@ extension BottomPanel {
         return contentViewController.view
     }
     
+    private var currentPosition: CGFloat {
+        guard let parentViewController = parentViewController else { return 0 }
+        return parentViewController.view.frame.maxY - contentView.frame.origin.y
+    }
+    
 }
 
 // MARK: - Public
@@ -87,15 +98,25 @@ extension BottomPanel {
     
     func embed(in parentViewController: UIViewController) {
         guard let lastPosition = positions.last else { return }
+
+        self.parentViewController = parentViewController
         
         parentViewController.addChild(contentViewController)
         parentViewController.view.addSubview(contentView)
         contentViewController.didMove(toParent: parentViewController)
 
-        contentView.frame = CGRect(x: 0,
-                                   y: parentViewController.view.frame.maxY - lastPosition.value,
-                                   width: parentViewController.view.frame.width,
-                                   height: parentViewController.view.frame.height)
+        let topConstraint = contentView.topAnchor.constraint(equalTo: parentViewController.view.topAnchor)
+        
+        contentView.activate {[
+            $0.leadingAnchor.constraint(equalTo: parentViewController.view.leadingAnchor),
+            $0.trailingAnchor.constraint(equalTo: parentViewController.view.trailingAnchor),
+            $0.bottomAnchor.constraint(equalTo: parentViewController.view.bottomAnchor),
+            topConstraint
+        ]}
+        
+        self.topConstraint = topConstraint
+        
+        change(position: lastPosition)
     }
     
 }
@@ -116,22 +137,24 @@ private extension BottomPanel {
     }
     
     func onPanChanged(_ recognizer: UIPanGestureRecognizer) {
-        guard let max = positions.max()?.value else { return }
-        guard let min = positions.min()?.value else { return }
+        guard let parentViewController = parentViewController else { return }
+        guard let maxPosition = positions.max() else { return }
+        guard let minPosition = positions.min() else { return }
         
-        let translation = recognizer.translation(in: contentView).y
-        let targetY = contentView.frame.origin.y + translation
+        let min = parentViewController.view.frame.maxY - maxPosition
+        let max = parentViewController.view.frame.maxY - minPosition
 
-        isOutside = targetY > max || targetY < min
-        
         let multiplier: CGFloat = isOutside
             ? Constants.TranslationMultiplier.isOutside
             : Constants.TranslationMultiplier.isNotOutside
         
-        contentView.frame = CGRect(x: 0,
-                                   y: contentView.frame.origin.y + translation * multiplier,
-                                   width: contentView.frame.width,
-                                   height: contentView.frame.height)
+        let translation = recognizer.translation(in: contentView).y
+        let delta = translation * multiplier
+        let targetY = contentView.frame.origin.y + delta
+                
+        isOutside = targetY > max || targetY < min
+        
+        change(y: targetY)
         
         recognizer.setTranslation(.zero, in: contentView)
     }
@@ -147,7 +170,7 @@ private extension BottomPanel {
         guard let nextPosition = nearPosition(for: velocity) else { return }
 
         if isOutside {
-            normalTransition(to: nextPosition, duration: Constants.Animation.Duration.slow)
+            normalTransition(to: nextPosition, duration: Constants.Animation.Duration.fast)
         } else {
             springTransition(to: nextPosition, duration: Constants.Animation.Duration.slow)
         }
@@ -159,18 +182,18 @@ private extension BottomPanel {
 
 private extension BottomPanel {
     
-    func normalTransition(to position: BottomPanelPosition,
+    func normalTransition(to position: CGFloat,
                           duration: TimeInterval) {
         
         UIView.animate(withDuration: duration,
                        delay: 0,
                        options: Constants.Animation.options,
                        animations: { [weak self] in
-            self?.changeFrame(for: position)
+            self?.change(position: position)
         }, completion: nil)
     }
     
-    func springTransition(to position: BottomPanelPosition,
+    func springTransition(to position: CGFloat,
                           duration: TimeInterval) {
         
         UIView.animate(withDuration: duration,
@@ -179,7 +202,7 @@ private extension BottomPanel {
                        initialSpringVelocity: Constants.Animation.initialSpringVelocity,
                        options: Constants.Animation.options,
                        animations: { [weak self] in
-            self?.changeFrame(for: position)
+            self?.change(position: position)
         }, completion: nil)
     }
     
@@ -193,15 +216,17 @@ private extension BottomPanel {
         contentViewController.view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(pan)))
     }
 
-    func changeFrame(for position: BottomPanelPosition) {
-        contentView.frame = CGRect(x: 0,
-                                   y: position.value,
-                                   width: contentView.frame.width,
-                                   height: contentView.frame.height)
+    func change(position: CGFloat) {
+        guard let parentViewController = parentViewController else { return }
+        change(y: parentViewController.view.frame.maxY - position)
     }
     
-    func nearPosition(for velocity: CGFloat) -> BottomPanelPosition? {
-        let currentPosition = contentView.frame.origin.y
+    func change(y: CGFloat) {
+        topConstraint?.constant = y
+        parentViewController?.view.layoutIfNeeded()
+    }
+    
+    func nearPosition(for velocity: CGFloat) -> CGFloat? {
         let candidatePositions = self.candidatePositions(for: velocity)
 
         if !candidatePositions.isEmpty,
@@ -215,20 +240,18 @@ private extension BottomPanel {
     }
 
     func moveToNearestPosition() {
-        let currentPosition = contentView.frame.origin.y
-        
         if let nearPositionIndex = positions.nearPositionIndex(for: currentPosition) {
             normalTransition(to: positions[nearPositionIndex], duration: Constants.Animation.Duration.fast)
         }
     }
 
-    func candidatePositions(for velocity: CGFloat) -> [BottomPanelPosition] {
-        let currentPosition = contentView.frame.origin.y
+    func candidatePositions(for velocity: CGFloat) -> [CGFloat] {
+        let currentPosition = self.currentPosition
         
         if velocity.isPositive {
-            return positions.filter { $0.value > currentPosition }
+            return positions.filter { $0 < currentPosition }
         } else if velocity.isNegative {
-            return positions.filter { $0.value < currentPosition }
+            return positions.filter { $0 > currentPosition }
         }
         
         return []
@@ -236,11 +259,11 @@ private extension BottomPanel {
     
 }
 
-private extension Array where Element == BottomPanelPosition {
+private extension Array where Element == CGFloat {
     
     func nearPositionIndex(for currentPosition: CGFloat) -> Int? {
         return enumerated()
-            .map { ($0.offset, abs(currentPosition - $0.element.value)) }
+            .map { ($0.offset, abs(currentPosition - $0.element)) }
             .min(by: { $0.1 < $1.1 })?
             .0
     }

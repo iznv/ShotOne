@@ -37,12 +37,13 @@ class MainViewController: UIViewController {
     lazy var gradientLayer: CAGradientLayer = {
         let layer = CAGradientLayer()
         
-        layer.set(colors: [ #colorLiteral(red: 0.1843137255, green: 0.2235294118, blue: 0.3411764706, alpha: 1), #colorLiteral(red: 0.1137254902, green: 0.1215686275, blue: 0.2431372549, alpha: 1) ])
+        layer.contentsScale = UIScreen.main.nativeScale
+        layer.set(colors: [ #colorLiteral(red: 0.5176470588, green: 0.2470588235, blue: 1, alpha: 1), #colorLiteral(red: 0.2941176471, green: 0.1490196078, blue: 1, alpha: 1) ])
         layer.frame = view.frame
         
         return layer
     }()
-    
+
     // MARK: - Views
 
     lazy var currencyView1: CurrencyView = {
@@ -67,8 +68,8 @@ class MainViewController: UIViewController {
     
     // MARK: - Transactions Panel
     
-    let transactionsPanel = BottomPanel(contentViewController: TransactionsViewController(),
-                                        positions: [.custom(value: 100), .custom(value: 400)])
+    lazy var transactionsPanel = BottomPanel(contentViewController: TransactionsViewController(),
+                                             positions: [100, 250, view.frame.height])
     
     // MARK: - Life Cycle
     
