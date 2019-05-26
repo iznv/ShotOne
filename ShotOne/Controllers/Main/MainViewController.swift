@@ -27,6 +27,8 @@ private enum Constants {
         static let attributes: [NSAttributedString.Key: Any] = [.kern: 1]
         
     }
+    
+    static let bottomPanelCornerRadius: CGFloat = 40
 
 }
 
@@ -70,9 +72,13 @@ class MainViewController: UIViewController {
     
     private let transactionsViewController = TransactionsViewController()
     
-    lazy var transactionsPanel = BottomPanel(contentViewController: transactionsViewController,
-                                             positions: [view.frame.height, 300, 100],
-                                             scrollView: transactionsViewController.tableView)
+    lazy var transactionsPanel: BottomPanel = {
+        let panel = BottomPanel(contentViewController: transactionsViewController,
+                                positions: [view.frame.height, 300, 100],
+                                scrollView: transactionsViewController.tableView)
+        panel.cornerRadius = Constants.bottomPanelCornerRadius
+        return panel
+    }()
     
     // MARK: - Life Cycle
     

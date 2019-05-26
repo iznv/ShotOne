@@ -66,6 +66,12 @@ class BottomPanel: NSObject {
 
     private var shouldDelegate = false
     
+    var cornerRadius: CGFloat = 0 {
+        didSet {
+            contentView.layer.cornerRadius = cornerRadius
+        }
+    }
+    
     // MARK: - Init
     
     init(contentViewController: UIViewController,
@@ -119,6 +125,9 @@ extension BottomPanel {
             $0.bottomAnchor.constraint(equalTo: parentViewController.view.bottomAnchor),
             topConstraint
         ]}
+
+        contentView.layer.masksToBounds = true
+        contentView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
 
         self.topConstraint = topConstraint
 
@@ -256,6 +265,13 @@ private extension BottomPanel {
     func change(y: CGFloat) {
         topConstraint?.constant = y
         parentViewController?.view.layoutIfNeeded()
+        adjustCornerRadius()
+    }
+    
+    func adjustCornerRadius() {
+        let safeAreaInsets = UIApplication.shared.safeAreaInsets
+        let normalizedDelta = (safeAreaInsets.top - contentView.safeAreaInsets.top) / safeAreaInsets.top
+        contentView.layer.cornerRadius = normalizedDelta * cornerRadius
     }
     
     func nearPosition(for velocity: CGFloat) -> CGFloat? {

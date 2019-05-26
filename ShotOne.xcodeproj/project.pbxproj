@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		2C3CCB09224AAD6A00FF2D1A /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3CCB05224AAD6A00FF2D1A /* Quicksand-Medium.ttf */; };
 		2C3CCB0A224AAD6A00FF2D1A /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3CCB06224AAD6A00FF2D1A /* Quicksand-Regular.ttf */; };
 		2C3CCB0B224AAD6A00FF2D1A /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3CCB07224AAD6A00FF2D1A /* Quicksand-Light.ttf */; };
+		2C49D0AA229ACE3100685B4D /* UIApplication+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49D0A9229ACE3100685B4D /* UIApplication+SafeArea.swift */; };
 		2C557CA622513D5D00525361 /* CurrencyView+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C557CA522513D5D00525361 /* CurrencyView+Appearance.swift */; };
 		2C557CA822513E8000525361 /* UIView+AddSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C557CA722513E8000525361 /* UIView+AddSubviews.swift */; };
 		2C557CAC22513EFA00525361 /* UIFont+CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C557CAB22513EFA00525361 /* UIFont+CustomFont.swift */; };
@@ -35,7 +36,7 @@
 		2C897B772249550D004523E3 /* CALayer+AddSublayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C897B762249550D004523E3 /* CALayer+AddSublayers.swift */; };
 		2C897B7B22495A22004523E3 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C897B7A22495A22004523E3 /* UIColor+Hex.swift */; };
 		2C97A1A822889DEA00FF3393 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97A1A722889DEA00FF3393 /* GradientView.swift */; };
-		2CD12A53229AB32500C3C3A3 /* UIPanGestureRecognizer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD12A52229AB32500C3C3A3 /* UIPanGestureRecognizer+Extensions.swift */; };
+		2CD12A53229AB32500C3C3A3 /* UIPanGestureRecognizer+Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD12A52229AB32500C3C3A3 /* UIPanGestureRecognizer+Direction.swift */; };
 		2CDDAE53226F8592008EB265 /* BottomPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDDAE52226F8592008EB265 /* BottomPanel.swift */; };
 		2CDEBBF3225290DB003BB3A3 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBBF2225290DB003BB3A3 /* TransactionsViewController.swift */; };
 		DDF87E2B25455B8F60E11524 /* Pods_ShotOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB0176BFFF1F6CE487220A7 /* Pods_ShotOne.framework */; };
@@ -51,6 +52,7 @@
 		2C3CCB05224AAD6A00FF2D1A /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		2C3CCB06224AAD6A00FF2D1A /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
 		2C3CCB07224AAD6A00FF2D1A /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.ttf"; sourceTree = "<group>"; };
+		2C49D0A9229ACE3100685B4D /* UIApplication+SafeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+SafeArea.swift"; sourceTree = "<group>"; };
 		2C557CA522513D5D00525361 /* CurrencyView+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrencyView+Appearance.swift"; sourceTree = "<group>"; };
 		2C557CA722513E8000525361 /* UIView+AddSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubviews.swift"; sourceTree = "<group>"; };
 		2C557CAB22513EFA00525361 /* UIFont+CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFont.swift"; sourceTree = "<group>"; };
@@ -72,7 +74,7 @@
 		2C897B762249550D004523E3 /* CALayer+AddSublayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+AddSublayers.swift"; sourceTree = "<group>"; };
 		2C897B7A22495A22004523E3 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		2C97A1A722889DEA00FF3393 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		2CD12A52229AB32500C3C3A3 /* UIPanGestureRecognizer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPanGestureRecognizer+Extensions.swift"; sourceTree = "<group>"; };
+		2CD12A52229AB32500C3C3A3 /* UIPanGestureRecognizer+Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPanGestureRecognizer+Direction.swift"; sourceTree = "<group>"; };
 		2CDDAE52226F8592008EB265 /* BottomPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPanel.swift; sourceTree = "<group>"; };
 		2CDEBBF2225290DB003BB3A3 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		5FB0176BFFF1F6CE487220A7 /* Pods_ShotOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShotOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +153,14 @@
 				2C3CCB06224AAD6A00FF2D1A /* Quicksand-Regular.ttf */,
 			);
 			path = Quicksand;
+			sourceTree = "<group>";
+		};
+		2C49D0A8229ACE1C00685B4D /* UIApplication */ = {
+			isa = PBXGroup;
+			children = (
+				2C49D0A9229ACE3100685B4D /* UIApplication+SafeArea.swift */,
+			);
+			path = UIApplication;
 			sourceTree = "<group>";
 		};
 		2C557CA322513D4400525361 /* ShotOne */ = {
@@ -357,6 +367,7 @@
 		2C897B7822495A0F004523E3 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				2C49D0A8229ACE1C00685B4D /* UIApplication */,
 				2C897B7922495A15004523E3 /* UIColor */,
 				2C557CA922513EE600525361 /* UIFont */,
 				2CD12A51229AB31200C3C3A3 /* UIPanGestureRecognizer */,
@@ -376,7 +387,7 @@
 		2CD12A51229AB31200C3C3A3 /* UIPanGestureRecognizer */ = {
 			isa = PBXGroup;
 			children = (
-				2CD12A52229AB32500C3C3A3 /* UIPanGestureRecognizer+Extensions.swift */,
+				2CD12A52229AB32500C3C3A3 /* UIPanGestureRecognizer+Direction.swift */,
 			);
 			path = UIPanGestureRecognizer;
 			sourceTree = "<group>";
@@ -411,7 +422,6 @@
 				80264DEEAA0DD898BF03E839 /* Pods-ShotOne.debug.xcconfig */,
 				B8FA6F807150AC601CC978CD /* Pods-ShotOne.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -494,16 +504,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ShotOne/Pods-ShotOne-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/TableKit/TableKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-ShotOne/Pods-ShotOne-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TableKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-ShotOne/Pods-ShotOne-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -540,11 +545,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C897B7B22495A22004523E3 /* UIColor+Hex.swift in Sources */,
-				2CD12A53229AB32500C3C3A3 /* UIPanGestureRecognizer+Extensions.swift in Sources */,
+				2CD12A53229AB32500C3C3A3 /* UIPanGestureRecognizer+Direction.swift in Sources */,
 				2C897B50224941E2004523E3 /* AppDelegate.swift in Sources */,
 				2C557CB322513F6300525361 /* CustomFont.swift in Sources */,
 				2C557CBB2251535300525361 /* CAGradientLayer+Colors.swift in Sources */,
 				2C897B6C2249479F004523E3 /* CurrencyView.swift in Sources */,
+				2C49D0AA229ACE3100685B4D /* UIApplication+SafeArea.swift in Sources */,
 				2C557CB8225152DC00525361 /* BoundsHolder.swift in Sources */,
 				2C0B9563224DEBE500792ADF /* String+Attributes.swift in Sources */,
 				2C557CA622513D5D00525361 /* CurrencyView+Appearance.swift in Sources */,
