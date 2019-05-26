@@ -38,6 +38,7 @@
 		2CD12A53229AB32500C3C3A3 /* UIPanGestureRecognizer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD12A52229AB32500C3C3A3 /* UIPanGestureRecognizer+Extensions.swift */; };
 		2CDDAE53226F8592008EB265 /* BottomPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDDAE52226F8592008EB265 /* BottomPanel.swift */; };
 		2CDEBBF3225290DB003BB3A3 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBBF2225290DB003BB3A3 /* TransactionsViewController.swift */; };
+		DDF87E2B25455B8F60E11524 /* Pods_ShotOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB0176BFFF1F6CE487220A7 /* Pods_ShotOne.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,9 @@
 		2CD12A52229AB32500C3C3A3 /* UIPanGestureRecognizer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPanGestureRecognizer+Extensions.swift"; sourceTree = "<group>"; };
 		2CDDAE52226F8592008EB265 /* BottomPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPanel.swift; sourceTree = "<group>"; };
 		2CDEBBF2225290DB003BB3A3 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		5FB0176BFFF1F6CE487220A7 /* Pods_ShotOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShotOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80264DEEAA0DD898BF03E839 /* Pods-ShotOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShotOne.debug.xcconfig"; path = "Target Support Files/Pods-ShotOne/Pods-ShotOne.debug.xcconfig"; sourceTree = "<group>"; };
+		B8FA6F807150AC601CC978CD /* Pods-ShotOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShotOne.release.xcconfig"; path = "Target Support Files/Pods-ShotOne/Pods-ShotOne.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDF87E2B25455B8F60E11524 /* Pods_ShotOne.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +240,8 @@
 			children = (
 				2C897B4E224941E2004523E3 /* ShotOne */,
 				2C897B4D224941E2004523E3 /* Products */,
+				F4E419EA205596DC46D62F59 /* Pods */,
+				56948D1CC7AD95D0F25F47CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -390,6 +397,24 @@
 			path = Transactions;
 			sourceTree = "<group>";
 		};
+		56948D1CC7AD95D0F25F47CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5FB0176BFFF1F6CE487220A7 /* Pods_ShotOne.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4E419EA205596DC46D62F59 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				80264DEEAA0DD898BF03E839 /* Pods-ShotOne.debug.xcconfig */,
+				B8FA6F807150AC601CC978CD /* Pods-ShotOne.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -397,9 +422,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C897B5E224941E4004523E3 /* Build configuration list for PBXNativeTarget "ShotOne" */;
 			buildPhases = (
+				C1E150CB7075A3FD26EA94B3 /* [CP] Check Pods Manifest.lock */,
 				2C897B48224941E2004523E3 /* Sources */,
 				2C897B49224941E2004523E3 /* Frameworks */,
 				2C897B4A224941E2004523E3 /* Resources */,
+				48346806934E76C72CCC0273 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -459,6 +486,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		48346806934E76C72CCC0273 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShotOne/Pods-ShotOne-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/TableKit/TableKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TableKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShotOne/Pods-ShotOne-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1E150CB7075A3FD26EA94B3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShotOne-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C897B48224941E2004523E3 /* Sources */ = {
@@ -614,6 +688,7 @@
 		};
 		2C897B5F224941E4004523E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80264DEEAA0DD898BF03E839 /* Pods-ShotOne.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -632,6 +707,7 @@
 		};
 		2C897B60224941E4004523E3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8FA6F807150AC601CC978CD /* Pods-ShotOne.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
