@@ -68,8 +68,11 @@ class MainViewController: UIViewController {
     
     // MARK: - Transactions Panel
     
-    lazy var transactionsPanel = BottomPanel(contentViewController: TransactionsViewController(),
-                                             positions: [100, 250, view.frame.height])
+    private let transactionsViewController = TransactionsViewController()
+    
+    lazy var transactionsPanel = BottomPanel(contentViewController: transactionsViewController,
+                                             positions: [view.frame.height, 300, 100],
+                                             scrollView: transactionsViewController.tableView)
     
     // MARK: - Life Cycle
     

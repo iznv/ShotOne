@@ -30,7 +30,7 @@ private enum Constants {
         
         static let initialSpringVelocity: CGFloat = 0.8
         
-        static let springDamping: CGFloat = 0.7
+        static let springDamping: CGFloat = 0.75
         
     }
 
@@ -46,7 +46,7 @@ private enum Constants {
     
 }
 
-class BottomPanel {
+class BottomPanel: NSObject {
     
     // MARK: - Constraints
     
@@ -54,25 +54,31 @@ class BottomPanel {
     
     // MARK: - Properties
     
-    private var isOutside = false
-    
     private var parentViewController: UIViewController?
+    
+    private let contentViewController: UIViewController
+    
+    private let scrollView: UIScrollView?
     
     private let positions: [CGFloat]
     
-    // MARK: - Content
-    
-    let contentViewController: UIViewController
+    private var isOutside = false
+
+    private var shouldDelegate = false
     
     // MARK: - Init
     
     init(contentViewController: UIViewController,
-         positions: [CGFloat]) {
+         positions: [CGFloat],
+         scrollView: UIScrollView? = nil) {
         
         self.contentViewController = contentViewController
         self.positions = positions
+        self.scrollView = scrollView
         
-        addPanGestureRecognizer()
+        super.init()
+        
+        addPanGestureRecognizers()
     }
     
 }
@@ -80,52 +86,52 @@ class BottomPanel {
 // MARK: - Computed Properties
 
 extension BottomPanel {
-    
+
     private var contentView: UIView {
         return contentViewController.view
     }
-    
+
     private var currentPosition: CGFloat {
         guard let parentViewController = parentViewController else { return 0 }
         return parentViewController.view.frame.maxY - contentView.frame.origin.y
     }
-    
+
 }
 
 // MARK: - Public
 
 extension BottomPanel {
-    
+
     func embed(in parentViewController: UIViewController) {
         guard let lastPosition = positions.last else { return }
 
         self.parentViewController = parentViewController
-        
+
         parentViewController.addChild(contentViewController)
         parentViewController.view.addSubview(contentView)
         contentViewController.didMove(toParent: parentViewController)
 
         let topConstraint = contentView.topAnchor.constraint(equalTo: parentViewController.view.topAnchor)
-        
+
         contentView.activate {[
             $0.leadingAnchor.constraint(equalTo: parentViewController.view.leadingAnchor),
             $0.trailingAnchor.constraint(equalTo: parentViewController.view.trailingAnchor),
             $0.bottomAnchor.constraint(equalTo: parentViewController.view.bottomAnchor),
             topConstraint
         ]}
-        
+
         self.topConstraint = topConstraint
-        
+
         change(position: lastPosition)
     }
-    
+
 }
 
 // MARK: - Gestures
 
 private extension BottomPanel {
     
-    @objc func pan(_ recognizer: UIPanGestureRecognizer) {
+    @objc func handlePan(_ recognizer: UIPanGestureRecognizer) {
         switch recognizer.state {
         case .began, .changed:
             onPanChanged(recognizer)
@@ -134,6 +140,24 @@ private extension BottomPanel {
         default:
             return
         }
+    }
+    
+    @objc func handleScroll(_ recognizer: UIPanGestureRecognizer) {
+        guard let scrollView = scrollView else { return }
+
+        let contentOffset = scrollView.contentOffset.y
+        let isDownDirection = recognizer.direction(in: contentView) == .down
+
+        guard (isDownDirection && contentOffset <= 0) || shouldDelegate else { return }
+        
+        if !shouldDelegate {
+            shouldDelegate = true
+            recognizer.setTranslation(CGPoint(x: 0, y: -contentOffset), in: contentView)
+        }
+        
+        scrollView.contentOffset.y = 0
+
+        handlePan(recognizer)
     }
     
     func onPanChanged(_ recognizer: UIPanGestureRecognizer) {
@@ -151,7 +175,7 @@ private extension BottomPanel {
         let translation = recognizer.translation(in: contentView).y
         let delta = translation * multiplier
         let targetY = contentView.frame.origin.y + delta
-                
+
         isOutside = targetY > max || targetY < min
         
         change(y: targetY)
@@ -160,6 +184,8 @@ private extension BottomPanel {
     }
 
     func onPanCompleted(_ recognizer: UIPanGestureRecognizer) {
+        defer { shouldDelegate = false }
+
         let velocity = recognizer.velocity(in: contentView).y
         
         if abs(velocity) < Constants.transitionThreshold {
@@ -190,7 +216,7 @@ private extension BottomPanel {
                        options: Constants.Animation.options,
                        animations: { [weak self] in
             self?.change(position: position)
-        }, completion: nil)
+        })
     }
     
     func springTransition(to position: CGFloat,
@@ -203,7 +229,7 @@ private extension BottomPanel {
                        options: Constants.Animation.options,
                        animations: { [weak self] in
             self?.change(position: position)
-        }, completion: nil)
+        })
     }
     
 }
@@ -212,13 +238,19 @@ private extension BottomPanel {
 
 private extension BottomPanel {
     
-    func addPanGestureRecognizer() {
-        contentViewController.view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(pan)))
+    func addPanGestureRecognizers() {
+        let recognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        recognizer.delegate = self
+        contentViewController.view.addGestureRecognizer(recognizer)
+        
+        guard let scrollView = scrollView else { return }
+        scrollView.panGestureRecognizer.addTarget(self, action: #selector(handleScroll))
     }
 
     func change(position: CGFloat) {
         guard let parentViewController = parentViewController else { return }
         change(y: parentViewController.view.frame.maxY - position)
+        scrollView?.isScrollEnabled = true
     }
     
     func change(y: CGFloat) {
@@ -257,6 +289,26 @@ private extension BottomPanel {
         return []
     }
     
+}
+
+extension BottomPanel: UIGestureRecognizerDelegate {
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        guard let scrollView = scrollView else { return false }
+        guard let gestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer else { return false }
+
+        let isMaxPosition = currentPosition == positions.max()
+        let isZeroContentOffset = scrollView.contentOffset.y == 0
+        let isDownDirection = gestureRecognizer.direction(in: contentView) == .down
+        
+        let isScrollDisabled = (isMaxPosition && isZeroContentOffset && isDownDirection) || !isMaxPosition
+        scrollView.isScrollEnabled = !isScrollDisabled
+        
+        return false
+    }
+
 }
 
 private extension Array where Element == CGFloat {

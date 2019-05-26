@@ -35,6 +35,7 @@
 		2C897B772249550D004523E3 /* CALayer+AddSublayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C897B762249550D004523E3 /* CALayer+AddSublayers.swift */; };
 		2C897B7B22495A22004523E3 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C897B7A22495A22004523E3 /* UIColor+Hex.swift */; };
 		2C97A1A822889DEA00FF3393 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97A1A722889DEA00FF3393 /* GradientView.swift */; };
+		2CD12A53229AB32500C3C3A3 /* UIPanGestureRecognizer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD12A52229AB32500C3C3A3 /* UIPanGestureRecognizer+Extensions.swift */; };
 		2CDDAE53226F8592008EB265 /* BottomPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDDAE52226F8592008EB265 /* BottomPanel.swift */; };
 		2CDEBBF3225290DB003BB3A3 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBBF2225290DB003BB3A3 /* TransactionsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		2C897B762249550D004523E3 /* CALayer+AddSublayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+AddSublayers.swift"; sourceTree = "<group>"; };
 		2C897B7A22495A22004523E3 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		2C97A1A722889DEA00FF3393 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		2CD12A52229AB32500C3C3A3 /* UIPanGestureRecognizer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPanGestureRecognizer+Extensions.swift"; sourceTree = "<group>"; };
 		2CDDAE52226F8592008EB265 /* BottomPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPanel.swift; sourceTree = "<group>"; };
 		2CDEBBF2225290DB003BB3A3 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -348,8 +350,9 @@
 		2C897B7822495A0F004523E3 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				2C557CA922513EE600525361 /* UIFont */,
 				2C897B7922495A15004523E3 /* UIColor */,
+				2C557CA922513EE600525361 /* UIFont */,
+				2CD12A51229AB31200C3C3A3 /* UIPanGestureRecognizer */,
 				2C0B9568224DEC8300792ADF /* UIView */,
 			);
 			path = UIKit;
@@ -361,6 +364,14 @@
 				2C897B7A22495A22004523E3 /* UIColor+Hex.swift */,
 			);
 			path = UIColor;
+			sourceTree = "<group>";
+		};
+		2CD12A51229AB31200C3C3A3 /* UIPanGestureRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				2CD12A52229AB32500C3C3A3 /* UIPanGestureRecognizer+Extensions.swift */,
+			);
+			path = UIPanGestureRecognizer;
 			sourceTree = "<group>";
 		};
 		2CDDAE51226F8578008EB265 /* Components */ = {
@@ -455,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C897B7B22495A22004523E3 /* UIColor+Hex.swift in Sources */,
+				2CD12A53229AB32500C3C3A3 /* UIPanGestureRecognizer+Extensions.swift in Sources */,
 				2C897B50224941E2004523E3 /* AppDelegate.swift in Sources */,
 				2C557CB322513F6300525361 /* CustomFont.swift in Sources */,
 				2C557CBB2251535300525361 /* CAGradientLayer+Colors.swift in Sources */,
