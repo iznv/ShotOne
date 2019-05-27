@@ -24,6 +24,14 @@ private struct Constants {
             
         }
         
+        static let cornerRadius: CGFloat = 1.5
+        
+        static let leading: CGFloat = 29.5
+        
+        static let width: CGFloat = 4
+        
+        static let bottomMargin: CGFloat = -5
+        
     }
     
     struct Title {
@@ -32,6 +40,8 @@ private struct Constants {
         
         static let textAlignment: NSTextAlignment = .center
         
+        static let topMargin: CGFloat = -18
+        
     }
     
     struct Value {
@@ -39,6 +49,8 @@ private struct Constants {
         static let color = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         static let textAlignment: NSTextAlignment = .center
+        
+        static let sideMargin: CGFloat = 25
         
     }
     
@@ -55,20 +67,6 @@ private struct Defaults {
         static let topPadding: CGFloat = 26
         
         static let colors = [ #colorLiteral(red: 0.2235294118, green: 0.2352941176, blue: 0.4117647059, alpha: 1), #colorLiteral(red: 0.1529411765, green: 0.1882352941, blue: 0.2980392157, alpha: 1) ]
-        
-    }
-    
-    struct Bar {
-        
-        static let cornerRadius: CGFloat = 1.5
-        
-        static let height: CGFloat = 112
-        
-        static let leftMargin: CGFloat = 29.5
-        
-        static let width: CGFloat = 4
-        
-        static let color = #colorLiteral(red: 0.09803921569, green: 0.8235294118, blue: 0.4941176471, alpha: 1)
         
     }
     
@@ -96,6 +94,12 @@ private struct Defaults {
         
     }
     
+    struct Bar {
+        
+        static let color = #colorLiteral(red: 0.09803921569, green: 0.8235294118, blue: 0.4941176471, alpha: 1)
+        
+    }
+    
 }
 
 class CurrencyView: BaseView {
@@ -114,21 +118,16 @@ class CurrencyView: BaseView {
         return layer
     }()
     
-    private lazy var barLayer: CALayer = {
-        let layer = CALayer()
-        
-        layer.contentsScale = UIScreen.main.nativeScale
-        layer.cornerRadius = Defaults.Bar.cornerRadius
-        layer.set(barColor: Defaults.Bar.color)
-        
-        layer.layout(leftMargin: Defaults.Bar.leftMargin,
-                     width: Defaults.Bar.width,
-                     height: Defaults.Bar.height)
-        
-        return layer
-    }()
-    
     // MARK: - Views
+    
+    private lazy var barView: UIView = {
+        let view = UIView()
+        
+        view.layer.cornerRadius = Constants.Bar.cornerRadius
+        view.set(barColor: Defaults.Bar.color)
+        
+        return view
+    }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -146,15 +145,12 @@ class CurrencyView: BaseView {
         label.font = Defaults.Value.font
         label.textColor = Constants.Value.color
         label.textAlignment = Constants.Value.textAlignment
+        label.adjustsFontSizeToFitWidth = true
         
         return label
     }()
     
     // MARK: - Constraints
-    
-    lazy var titleBottomConstraint = titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor,
-                                                                        constant: -titleBottomMargin)
-    
     
     lazy var valueCenterYConstraint = valueLabel.centerYAnchor.constraint(equalTo: centerYAnchor,
                                                                           constant: valueOffset)
@@ -182,31 +178,11 @@ class CurrencyView: BaseView {
     }
     
     @objc dynamic var barColor = Defaults.Bar.color {
-        didSet { barLayer.set(barColor: barColor) }
+        didSet { barView.set(barColor: barColor) }
     }
-    
-    @objc dynamic var barCornerRadius = Defaults.Bar.cornerRadius {
-        didSet { barLayer.cornerRadius = barCornerRadius }
-    }
-    
-    @objc dynamic var barHeight = Defaults.Bar.height {
-        didSet { layoutBarLayer() }
-    }
-    
-    @objc dynamic var barLeftMargin = Defaults.Bar.leftMargin {
-        didSet { layoutBarLayer() }
-    }
-    
-    @objc dynamic var barWidth = Defaults.Bar.width {
-        didSet { layoutBarLayer() }
-    }
-    
+
     @objc dynamic var title = Defaults.Title.text {
         didSet { titleLabel.text = title }
-    }
-    
-    @objc dynamic var titleBottomMargin = Defaults.Title.bottomMargin {
-        didSet { titleBottomConstraint.constant = -titleBottomMargin }
     }
     
     @objc dynamic var titleFont = Defaults.Title.font {
@@ -231,7 +207,6 @@ class CurrencyView: BaseView {
         super.layoutSubviews()
         
         layoutBackgroundLayer()
-        layoutBarLayer()
     }
     
     // MARK: - Overrides
@@ -249,11 +224,11 @@ private extension CurrencyView {
     
     func addViews() {
         layer.addSublayers(
-            backgroundLayer,
-            barLayer
+            backgroundLayer
         )
         
         addSubviews(
+            barView,
             valueLabel,
             titleLabel
         )
@@ -271,30 +246,36 @@ private extension CurrencyView {
         backgroundLayer.layout(topPadding: backgroundTopPadding, relativeTo: self)
     }
     
-    func layoutBarLayer() {
-        barLayer.layout(leftMargin: barLeftMargin,
-                        width: barWidth,
-                        height: barHeight)
-    }
-    
     // MARK: - Auto
     
     func configureConstraints() {
         layoutTitleLabel()
         layoutValueLabel()
+        layoutBarView()
     }
     
     func layoutTitleLabel() {
         titleLabel.activate {[
             $0.widthAnchor.constraint(equalTo: widthAnchor),
-            titleBottomConstraint
+            $0.topAnchor.constraint(equalTo: valueLabel.bottomAnchor, constant: Constants.Title.topMargin),
+            $0.bottomAnchor.constraint(equalTo: bottomAnchor)
         ]}
     }
     
     func layoutValueLabel() {
         valueLabel.activate {[
-            $0.widthAnchor.constraint(equalTo: widthAnchor),
+            $0.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.Value.sideMargin),
+            $0.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.Value.sideMargin),
             valueCenterYConstraint
+        ]}
+    }
+    
+    func layoutBarView() {
+        barView.activate {[
+            $0.widthAnchor.constraint(equalToConstant: Constants.Bar.width),
+            $0.topAnchor.constraint(equalTo: topAnchor),
+            $0.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.Bar.leading),
+            $0.bottomAnchor.constraint(equalTo: valueLabel.topAnchor, constant: Constants.Bar.bottomMargin)
         ]}
     }
     
@@ -302,15 +283,15 @@ private extension CurrencyView {
 
 // MARK: - Private
 
-private extension CALayer {
+private extension UIView {
     
     func set(barColor: UIColor) {
-        backgroundColor = barColor.cgColor
+        backgroundColor = barColor
         
-        addShadow(color: barColor,
-                  radius: Constants.Bar.Shadow.radius,
-                  opacity: Constants.Bar.Shadow.opacity,
-                  dx: Constants.Bar.Shadow.dx)
+        layer.addShadow(color: barColor,
+                        radius: Constants.Bar.Shadow.radius,
+                        opacity: Constants.Bar.Shadow.opacity,
+                        dx: Constants.Bar.Shadow.dx)
     }
     
 }

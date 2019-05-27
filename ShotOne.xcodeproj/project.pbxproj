@@ -12,11 +12,24 @@
 		2C0B956A224DEC8F00792ADF /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B9569224DEC8F00792ADF /* UIView+Constraints.swift */; };
 		2C0B956C224DECA600792ADF /* String+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B956B224DECA600792ADF /* String+Constants.swift */; };
 		2C0B956E224DEDBB00792ADF /* CALayer+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B956D224DEDBB00792ADF /* CALayer+Shadow.swift */; };
+		2C37E88F229C5E1200F7380F /* NSLayoutConstraint+Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37E88E229C5E1200F7380F /* NSLayoutConstraint+Priority.swift */; };
+		2C37E891229C5F8E00F7380F /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37E890229C5F8E00F7380F /* TransactionsViewModel.swift */; };
+		2C37E895229C610800F7380F /* TableDirector+Replace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37E894229C610800F7380F /* TableDirector+Replace.swift */; };
+		2C37E898229C612500F7380F /* TableSection+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37E897229C612500F7380F /* TableSection+Init.swift */; };
+		2C37E89B229C615300F7380F /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37E89A229C615300F7380F /* EmptyCell.swift */; };
+		2C37E89D229C619600F7380F /* EmptyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37E89C229C619600F7380F /* EmptyRow.swift */; };
 		2C3CCB08224AAD6A00FF2D1A /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3CCB04224AAD6A00FF2D1A /* Quicksand-Bold.ttf */; };
 		2C3CCB09224AAD6A00FF2D1A /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3CCB05224AAD6A00FF2D1A /* Quicksand-Medium.ttf */; };
 		2C3CCB0A224AAD6A00FF2D1A /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3CCB06224AAD6A00FF2D1A /* Quicksand-Regular.ttf */; };
 		2C3CCB0B224AAD6A00FF2D1A /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3CCB07224AAD6A00FF2D1A /* Quicksand-Light.ttf */; };
 		2C49D0AA229ACE3100685B4D /* UIApplication+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49D0A9229ACE3100685B4D /* UIApplication+SafeArea.swift */; };
+		2C49D0AE229AF2C800685B4D /* SectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49D0AD229AF2C800685B4D /* SectionHeaderCell.swift */; };
+		2C49D0B0229AF2D000685B4D /* SectionHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49D0AF229AF2D000685B4D /* SectionHeaderCellViewModel.swift */; };
+		2C49D0B3229AF96A00685B4D /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49D0B2229AF96A00685B4D /* TransactionCell.swift */; };
+		2C49D0B5229AF97700685B4D /* TransactionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49D0B4229AF97700685B4D /* TransactionCellViewModel.swift */; };
+		2C49D0B8229AFFC400685B4D /* WalletsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49D0B7229AFFC400685B4D /* WalletsCell.swift */; };
+		2C49D0BA229AFFCF00685B4D /* WalletsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49D0B9229AFFCF00685B4D /* WalletsCellViewModel.swift */; };
+		2C49D0BC229B001300685B4D /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49D0BB229B001300685B4D /* Wallet.swift */; };
 		2C557CA622513D5D00525361 /* CurrencyView+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C557CA522513D5D00525361 /* CurrencyView+Appearance.swift */; };
 		2C557CA822513E8000525361 /* UIView+AddSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C557CA722513E8000525361 /* UIView+AddSubviews.swift */; };
 		2C557CAC22513EFA00525361 /* UIFont+CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C557CAB22513EFA00525361 /* UIFont+CustomFont.swift */; };
@@ -48,11 +61,24 @@
 		2C0B9569224DEC8F00792ADF /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		2C0B956B224DECA600792ADF /* String+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Constants.swift"; sourceTree = "<group>"; };
 		2C0B956D224DEDBB00792ADF /* CALayer+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Shadow.swift"; sourceTree = "<group>"; };
+		2C37E88E229C5E1200F7380F /* NSLayoutConstraint+Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Priority.swift"; sourceTree = "<group>"; };
+		2C37E890229C5F8E00F7380F /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
+		2C37E894229C610800F7380F /* TableDirector+Replace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableDirector+Replace.swift"; sourceTree = "<group>"; };
+		2C37E897229C612500F7380F /* TableSection+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableSection+Init.swift"; sourceTree = "<group>"; };
+		2C37E89A229C615300F7380F /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
+		2C37E89C229C619600F7380F /* EmptyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRow.swift; sourceTree = "<group>"; };
 		2C3CCB04224AAD6A00FF2D1A /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.ttf"; sourceTree = "<group>"; };
 		2C3CCB05224AAD6A00FF2D1A /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		2C3CCB06224AAD6A00FF2D1A /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
 		2C3CCB07224AAD6A00FF2D1A /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.ttf"; sourceTree = "<group>"; };
 		2C49D0A9229ACE3100685B4D /* UIApplication+SafeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+SafeArea.swift"; sourceTree = "<group>"; };
+		2C49D0AD229AF2C800685B4D /* SectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCell.swift; sourceTree = "<group>"; };
+		2C49D0AF229AF2D000685B4D /* SectionHeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCellViewModel.swift; sourceTree = "<group>"; };
+		2C49D0B2229AF96A00685B4D /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		2C49D0B4229AF97700685B4D /* TransactionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModel.swift; sourceTree = "<group>"; };
+		2C49D0B7229AFFC400685B4D /* WalletsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsCell.swift; sourceTree = "<group>"; };
+		2C49D0B9229AFFCF00685B4D /* WalletsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsCellViewModel.swift; sourceTree = "<group>"; };
+		2C49D0BB229B001300685B4D /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		2C557CA522513D5D00525361 /* CurrencyView+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrencyView+Appearance.swift"; sourceTree = "<group>"; };
 		2C557CA722513E8000525361 /* UIView+AddSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubviews.swift"; sourceTree = "<group>"; };
 		2C557CAB22513EFA00525361 /* UIFont+CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFont.swift"; sourceTree = "<group>"; };
@@ -136,6 +162,48 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
+		2C37E88D229C5DFC00F7380F /* NSLayoutConstraint */ = {
+			isa = PBXGroup;
+			children = (
+				2C37E88E229C5E1200F7380F /* NSLayoutConstraint+Priority.swift */,
+			);
+			path = NSLayoutConstraint;
+			sourceTree = "<group>";
+		};
+		2C37E892229C60EB00F7380F /* TableKit */ = {
+			isa = PBXGroup;
+			children = (
+				2C37E893229C60F800F7380F /* TableDirector */,
+				2C37E896229C611900F7380F /* TableSection */,
+			);
+			path = TableKit;
+			sourceTree = "<group>";
+		};
+		2C37E893229C60F800F7380F /* TableDirector */ = {
+			isa = PBXGroup;
+			children = (
+				2C37E894229C610800F7380F /* TableDirector+Replace.swift */,
+			);
+			path = TableDirector;
+			sourceTree = "<group>";
+		};
+		2C37E896229C611900F7380F /* TableSection */ = {
+			isa = PBXGroup;
+			children = (
+				2C37E897229C612500F7380F /* TableSection+Init.swift */,
+			);
+			path = TableSection;
+			sourceTree = "<group>";
+		};
+		2C37E899229C614B00F7380F /* EmptyCell */ = {
+			isa = PBXGroup;
+			children = (
+				2C37E89A229C615300F7380F /* EmptyCell.swift */,
+				2C37E89C229C619600F7380F /* EmptyRow.swift */,
+			);
+			path = EmptyCell;
+			sourceTree = "<group>";
+		};
 		2C3CCB00224AAB6B00FF2D1A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +229,52 @@
 				2C49D0A9229ACE3100685B4D /* UIApplication+SafeArea.swift */,
 			);
 			path = UIApplication;
+			sourceTree = "<group>";
+		};
+		2C49D0AB229AF2A600685B4D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2C37E899229C614B00F7380F /* EmptyCell */,
+				2C49D0AC229AF2AF00685B4D /* SectionHeaderCell */,
+				2C49D0B1229AF95C00685B4D /* TransactionCell */,
+				2C49D0B6229AFFAC00685B4D /* WalletsCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		2C49D0AC229AF2AF00685B4D /* SectionHeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				2C49D0AD229AF2C800685B4D /* SectionHeaderCell.swift */,
+				2C49D0AF229AF2D000685B4D /* SectionHeaderCellViewModel.swift */,
+			);
+			path = SectionHeaderCell;
+			sourceTree = "<group>";
+		};
+		2C49D0B1229AF95C00685B4D /* TransactionCell */ = {
+			isa = PBXGroup;
+			children = (
+				2C49D0B2229AF96A00685B4D /* TransactionCell.swift */,
+				2C49D0B4229AF97700685B4D /* TransactionCellViewModel.swift */,
+			);
+			path = TransactionCell;
+			sourceTree = "<group>";
+		};
+		2C49D0B6229AFFAC00685B4D /* WalletsCell */ = {
+			isa = PBXGroup;
+			children = (
+				2C49D0B7229AFFC400685B4D /* WalletsCell.swift */,
+				2C49D0B9229AFFCF00685B4D /* WalletsCellViewModel.swift */,
+			);
+			path = WalletsCell;
+			sourceTree = "<group>";
+		};
+		2C49D0BD229B00C200685B4D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2C49D0BB229B001300685B4D /* Wallet.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		2C557CA322513D4400525361 /* ShotOne */ = {
@@ -269,9 +383,11 @@
 				2C897B5B224941E4004523E3 /* Info.plist */,
 				2C897B4F224941E2004523E3 /* AppDelegate.swift */,
 				2C557CB022513F5200525361 /* Appearance */,
+				2C49D0AB229AF2A600685B4D /* Cells */,
 				2CDDAE51226F8578008EB265 /* Components */,
 				2C897B62224943A2004523E3 /* Controllers */,
 				2C897B6F2249533E004523E3 /* Extensions */,
+				2C49D0BD229B00C200685B4D /* Models */,
 				2C897B612249436C004523E3 /* Resources */,
 				2C897B69224946B4004523E3 /* Views */,
 			);
@@ -323,6 +439,7 @@
 				2C897B74224954F4004523E3 /* QuartzCore */,
 				2C557CA322513D4400525361 /* ShotOne */,
 				2C0B9560224DEBCF00792ADF /* Swift */,
+				2C37E892229C60EB00F7380F /* TableKit */,
 				2C897B7822495A0F004523E3 /* UIKit */,
 			);
 			path = Extensions;
@@ -367,6 +484,7 @@
 		2C897B7822495A0F004523E3 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				2C37E88D229C5DFC00F7380F /* NSLayoutConstraint */,
 				2C49D0A8229ACE1C00685B4D /* UIApplication */,
 				2C897B7922495A15004523E3 /* UIColor */,
 				2C557CA922513EE600525361 /* UIFont */,
@@ -404,6 +522,7 @@
 			isa = PBXGroup;
 			children = (
 				2CDEBBF2225290DB003BB3A3 /* TransactionsViewController.swift */,
+				2C37E890229C5F8E00F7380F /* TransactionsViewModel.swift */,
 			);
 			path = Transactions;
 			sourceTree = "<group>";
@@ -545,29 +664,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C897B7B22495A22004523E3 /* UIColor+Hex.swift in Sources */,
+				2C49D0B5229AF97700685B4D /* TransactionCellViewModel.swift in Sources */,
 				2CD12A53229AB32500C3C3A3 /* UIPanGestureRecognizer+Direction.swift in Sources */,
+				2C49D0BC229B001300685B4D /* Wallet.swift in Sources */,
 				2C897B50224941E2004523E3 /* AppDelegate.swift in Sources */,
 				2C557CB322513F6300525361 /* CustomFont.swift in Sources */,
 				2C557CBB2251535300525361 /* CAGradientLayer+Colors.swift in Sources */,
+				2C37E88F229C5E1200F7380F /* NSLayoutConstraint+Priority.swift in Sources */,
 				2C897B6C2249479F004523E3 /* CurrencyView.swift in Sources */,
+				2C37E89B229C615300F7380F /* EmptyCell.swift in Sources */,
+				2C49D0B8229AFFC400685B4D /* WalletsCell.swift in Sources */,
 				2C49D0AA229ACE3100685B4D /* UIApplication+SafeArea.swift in Sources */,
 				2C557CB8225152DC00525361 /* BoundsHolder.swift in Sources */,
 				2C0B9563224DEBE500792ADF /* String+Attributes.swift in Sources */,
 				2C557CA622513D5D00525361 /* CurrencyView+Appearance.swift in Sources */,
 				2C897B7322495366004523E3 /* CGColor+UIColor.swift in Sources */,
 				2C72099F22776EA800EF0ED4 /* CGFloat+Sign.swift in Sources */,
+				2C49D0AE229AF2C800685B4D /* SectionHeaderCell.swift in Sources */,
 				2C557CAC22513EFA00525361 /* UIFont+CustomFont.swift in Sources */,
 				2C0B956E224DEDBB00792ADF /* CALayer+Shadow.swift in Sources */,
 				2CDDAE53226F8592008EB265 /* BottomPanel.swift in Sources */,
 				2C897B772249550D004523E3 /* CALayer+AddSublayers.swift in Sources */,
 				2C557CA822513E8000525361 /* UIView+AddSubviews.swift in Sources */,
+				2C49D0B0229AF2D000685B4D /* SectionHeaderCellViewModel.swift in Sources */,
 				2C0B9567224DEC2100792ADF /* NSMutableAttributedString+Attributes.swift in Sources */,
 				2CDEBBF3225290DB003BB3A3 /* TransactionsViewController.swift in Sources */,
+				2C37E89D229C619600F7380F /* EmptyRow.swift in Sources */,
 				2C0B956A224DEC8F00792ADF /* UIView+Constraints.swift in Sources */,
+				2C37E891229C5F8E00F7380F /* TransactionsViewModel.swift in Sources */,
 				2C557CB52251523600525361 /* CALayer+Layout.swift in Sources */,
 				2C897B65224943CD004523E3 /* MainViewController.swift in Sources */,
 				2C557CAF22513F3000525361 /* UIFontWeight+Title.swift in Sources */,
 				2C97A1A822889DEA00FF3393 /* GradientView.swift in Sources */,
+				2C49D0B3229AF96A00685B4D /* TransactionCell.swift in Sources */,
+				2C37E898229C612500F7380F /* TableSection+Init.swift in Sources */,
+				2C49D0BA229AFFCF00685B4D /* WalletsCellViewModel.swift in Sources */,
+				2C37E895229C610800F7380F /* TableDirector+Replace.swift in Sources */,
 				2C0B956C224DECA600792ADF /* String+Constants.swift in Sources */,
 				2C897B6E22494866004523E3 /* BaseView.swift in Sources */,
 			);

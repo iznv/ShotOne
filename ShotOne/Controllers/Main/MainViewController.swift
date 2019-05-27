@@ -8,25 +8,9 @@
 
 import UIKit
 
+// MARK: - Constants
+
 private enum Constants {
-    
-    struct CurrencyView {
-        
-        static let size = CGSize(width: 143, height: 244)
-        
-    }
-    
-    struct Title {
-        
-        static let attributes: [NSAttributedString.Key: Any] = [.kern: 0.6]
-        
-    }
-    
-    struct Value {
-        
-        static let attributes: [NSAttributedString.Key: Any] = [.kern: 1]
-        
-    }
     
     static let bottomPanelCornerRadius: CGFloat = 40
 
@@ -46,35 +30,13 @@ class MainViewController: UIViewController {
         return layer
     }()
 
-    // MARK: - Views
-
-    lazy var currencyView1: CurrencyView = {
-        let view = CurrencyView()
-        
-        view.barColor = #colorLiteral(red: 0.09803921569, green: 0.8235294118, blue: 0.4941176471, alpha: 1)
-        view.frame.size = Constants.CurrencyView.size
-        view.frame.origin = CGPoint(x: 32, y: self.view.frame.height - 289)
-        
-        return view
-    }()
-    
-    lazy var currencyView2: CurrencyView = {
-        let view = CurrencyView()
-        
-        view.barColor = #colorLiteral(red: 1, green: 0.2862745098, blue: 0.5058823529, alpha: 1)
-        view.frame.size = Constants.CurrencyView.size
-        view.frame.origin = CGPoint(x: currencyView1.frame.maxX + 28, y: self.view.frame.height - 289)
-        
-        return view
-    }()
-    
     // MARK: - Transactions Panel
     
-    private let transactionsViewController = TransactionsViewController()
+    private let transactionsViewController = TransactionsViewController(viewModel: TransactionsViewModel())
     
     lazy var transactionsPanel: BottomPanel = {
         let panel = BottomPanel(contentViewController: transactionsViewController,
-                                positions: [view.frame.height, 300, 100],
+                                positions: [view.frame.height, 256],
                                 scrollView: transactionsViewController.tableView)
         panel.cornerRadius = Constants.bottomPanelCornerRadius
         return panel
@@ -86,12 +48,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         addViews()
-        configure()
         addBottomSheet()
-    }
-    
-    func addBottomSheet() {
-        transactionsPanel.embed(in: self)
     }
 
     // MARK: - Overrides
@@ -108,25 +65,16 @@ private extension MainViewController {
     
     func addViews() {
         view.layer.addSublayer(gradientLayer)
-        
-        view.addSubviews(
-            currencyView1,
-            currencyView2
-        )
     }
     
 }
 
-// MARK: - Configure
+// MARK: - Private
 
 private extension MainViewController {
-    
-    func configure() {
-        currencyView1.attributedTitle = "Crypto".with(Constants.Title.attributes)
-        currencyView1.attributedValue = "+19.06".with(Constants.Value.attributes)
-        
-        currencyView2.attributedTitle = "Dollars".with(Constants.Title.attributes)
-        currencyView2.attributedValue = "-02.24".with(Constants.Value.attributes)
+
+    func addBottomSheet() {
+        transactionsPanel.embed(in: self)
     }
     
 }

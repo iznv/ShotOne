@@ -6,7 +6,7 @@
 //  Copyright © 2019 Ivan Zinovyev. All rights reserved.
 //
 
-import UIKit
+import TableKit
 
 // MARK: - Constants
 
@@ -20,7 +20,11 @@ private enum Constants {
         
         static let width: CGFloat = 55
         
+        static let cornerRadius: CGFloat = 5
+        
     }
+    
+    static let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 32, right: 0)
     
 }
 
@@ -30,7 +34,7 @@ class TransactionsViewController: UIViewController {
     
     private let gradientView: GradientView = {
         let view = GradientView()
-        view.set(colors: [ #colorLiteral(red: 0.1843137255, green: 0.2235294118, blue: 0.3411764706, alpha: 1), #colorLiteral(red: 0.1137254902, green: 0.1215686275, blue: 0.2431372549, alpha: 1) ])
+        view.set(colors: [ #colorLiteral(red: 0.1843137255, green: 0.2235294118, blue: 0.3411764706, alpha: 1), #colorLiteral(red: 0.09463696531, green: 0.1070505067, blue: 0.2135726927, alpha: 1) ])
         return view
     }()
     
@@ -38,12 +42,40 @@ class TransactionsViewController: UIViewController {
         let view = UIView()
         
         view.backgroundColor = #colorLiteral(red: 0.3137254902, green: 0.1568627451, blue: 1, alpha: 1)
-        view.layer.cornerRadius = 5
+        view.layer.cornerRadius = Constants.Grip.cornerRadius
         
         return view
     }()
     
-    let tableView = UITableView()
+    let tableView: UITableView = {
+        let view = UITableView()
+        
+        view.backgroundColor = .clear
+        view.separatorStyle = .none
+        view.contentInset = Constants.contentInset
+        
+        return view
+    }()
+    
+    // MARK: - ViewModel
+    
+    let viewModel: TransactionsViewModel
+    
+    // MARK: - Properties
+    
+    private lazy var tableDirector = TableDirector(tableView: tableView)
+    
+    // MARK: - Init
+    
+    init(viewModel: TransactionsViewModel) {
+        self.viewModel = viewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Life Cycle
     
@@ -53,23 +85,58 @@ class TransactionsViewController: UIViewController {
         addViews()
         configureConstraints()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CELL")
-        tableView.dataSource = self
+        configureTableView()
     }
     
 }
 
-extension TransactionsViewController: UITableViewDataSource {
+// MARK: - TableView
+
+private extension TransactionsViewController {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+    func configureTableView() {
+        tableDirector.replace(with: [
+            transactionsSection,
+            walletsSection
+        ])
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CELL")!
-        cell.textLabel?.text = String(indexPath.row)
-        
-        return cell
+    // MARK: - Sections
+    
+    var transactionsSection: TableSection {
+        return TableSection(onlyRows:
+            headerRows +
+            transactionRows
+        )
+    }
+    
+    var walletsSection: TableSection {
+        return TableSection(onlyRows: [
+            walletRow
+        ])
+    }
+    
+    // MARK: - Rows
+    
+    var headerRows: [Row] {
+        return [
+            TableRow<SectionHeaderCell>(item: viewModel.sectionHeaderViewModel),
+            EmptyRow(height: 24)
+        ]
+    }
+    
+    var transactionRows: [Row] {
+        return viewModel.transactionViewModels.map {
+            TableRow<TransactionCell>(item: $0)
+        }
+    }
+    
+    var walletRow: Row {
+        return TableRow<WalletsCell>(item: viewModel.walletsViewModel)
+            .on(.height) { [weak self] _ in
+                guard let self = self else { return }
+                WalletsCell.defaultHeight = WalletsCell.height(forCellWidht: self.tableView.frame.width)
+            }
     }
     
 }
