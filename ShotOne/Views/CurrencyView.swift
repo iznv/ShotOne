@@ -50,8 +50,6 @@ private struct Constants {
         
         static let textAlignment: NSTextAlignment = .center
         
-        static let sideMargin: CGFloat = 25
-        
     }
     
 }
@@ -145,7 +143,6 @@ class CurrencyView: BaseView {
         label.font = Defaults.Value.font
         label.textColor = Constants.Value.color
         label.textAlignment = Constants.Value.textAlignment
-        label.adjustsFontSizeToFitWidth = true
         
         return label
     }()
@@ -264,8 +261,8 @@ private extension CurrencyView {
     
     func layoutValueLabel() {
         valueLabel.activate {[
-            $0.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.Value.sideMargin),
-            $0.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.Value.sideMargin),
+            $0.leadingAnchor.constraint(equalTo: leadingAnchor),
+            $0.trailingAnchor.constraint(equalTo: trailingAnchor),
             valueCenterYConstraint
         ]}
     }

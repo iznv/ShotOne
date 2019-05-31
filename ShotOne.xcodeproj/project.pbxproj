@@ -12,12 +12,15 @@
 		2C0B956A224DEC8F00792ADF /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B9569224DEC8F00792ADF /* UIView+Constraints.swift */; };
 		2C0B956C224DECA600792ADF /* String+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B956B224DECA600792ADF /* String+Constants.swift */; };
 		2C0B956E224DEDBB00792ADF /* CALayer+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B956D224DEDBB00792ADF /* CALayer+Shadow.swift */; };
+		2C2DC2C2229EFE2300E7AB3F /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2DC2C1229EFE2300E7AB3F /* WalletView.swift */; };
 		2C37E88F229C5E1200F7380F /* NSLayoutConstraint+Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37E88E229C5E1200F7380F /* NSLayoutConstraint+Priority.swift */; };
 		2C37E891229C5F8E00F7380F /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37E890229C5F8E00F7380F /* TransactionsViewModel.swift */; };
 		2C37E895229C610800F7380F /* TableDirector+Replace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37E894229C610800F7380F /* TableDirector+Replace.swift */; };
 		2C37E898229C612500F7380F /* TableSection+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37E897229C612500F7380F /* TableSection+Init.swift */; };
 		2C37E89B229C615300F7380F /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37E89A229C615300F7380F /* EmptyCell.swift */; };
 		2C37E89D229C619600F7380F /* EmptyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37E89C229C619600F7380F /* EmptyRow.swift */; };
+		2C37E89F229C646F00F7380F /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37E89E229C646F00F7380F /* UserView.swift */; };
+		2C37E8A1229C6CBC00F7380F /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37E8A0229C6CBC00F7380F /* BalanceView.swift */; };
 		2C3CCB08224AAD6A00FF2D1A /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3CCB04224AAD6A00FF2D1A /* Quicksand-Bold.ttf */; };
 		2C3CCB09224AAD6A00FF2D1A /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3CCB05224AAD6A00FF2D1A /* Quicksand-Medium.ttf */; };
 		2C3CCB0A224AAD6A00FF2D1A /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3CCB06224AAD6A00FF2D1A /* Quicksand-Regular.ttf */; };
@@ -61,12 +64,15 @@
 		2C0B9569224DEC8F00792ADF /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		2C0B956B224DECA600792ADF /* String+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Constants.swift"; sourceTree = "<group>"; };
 		2C0B956D224DEDBB00792ADF /* CALayer+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Shadow.swift"; sourceTree = "<group>"; };
+		2C2DC2C1229EFE2300E7AB3F /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		2C37E88E229C5E1200F7380F /* NSLayoutConstraint+Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Priority.swift"; sourceTree = "<group>"; };
 		2C37E890229C5F8E00F7380F /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
 		2C37E894229C610800F7380F /* TableDirector+Replace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableDirector+Replace.swift"; sourceTree = "<group>"; };
 		2C37E897229C612500F7380F /* TableSection+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableSection+Init.swift"; sourceTree = "<group>"; };
 		2C37E89A229C615300F7380F /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
 		2C37E89C229C619600F7380F /* EmptyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRow.swift; sourceTree = "<group>"; };
+		2C37E89E229C646F00F7380F /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		2C37E8A0229C6CBC00F7380F /* BalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
 		2C3CCB04224AAD6A00FF2D1A /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.ttf"; sourceTree = "<group>"; };
 		2C3CCB05224AAD6A00FF2D1A /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		2C3CCB06224AAD6A00FF2D1A /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
@@ -424,9 +430,12 @@
 		2C897B69224946B4004523E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2C37E8A0229C6CBC00F7380F /* BalanceView.swift */,
 				2C897B6D22494866004523E3 /* BaseView.swift */,
 				2C897B6B2249479F004523E3 /* CurrencyView.swift */,
 				2C97A1A722889DEA00FF3393 /* GradientView.swift */,
+				2C37E89E229C646F00F7380F /* UserView.swift */,
+				2C2DC2C1229EFE2300E7AB3F /* WalletView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -676,9 +685,11 @@
 				2C49D0B8229AFFC400685B4D /* WalletsCell.swift in Sources */,
 				2C49D0AA229ACE3100685B4D /* UIApplication+SafeArea.swift in Sources */,
 				2C557CB8225152DC00525361 /* BoundsHolder.swift in Sources */,
+				2C37E8A1229C6CBC00F7380F /* BalanceView.swift in Sources */,
 				2C0B9563224DEBE500792ADF /* String+Attributes.swift in Sources */,
 				2C557CA622513D5D00525361 /* CurrencyView+Appearance.swift in Sources */,
 				2C897B7322495366004523E3 /* CGColor+UIColor.swift in Sources */,
+				2C2DC2C2229EFE2300E7AB3F /* WalletView.swift in Sources */,
 				2C72099F22776EA800EF0ED4 /* CGFloat+Sign.swift in Sources */,
 				2C49D0AE229AF2C800685B4D /* SectionHeaderCell.swift in Sources */,
 				2C557CAC22513EFA00525361 /* UIFont+CustomFont.swift in Sources */,
@@ -690,6 +701,7 @@
 				2C0B9567224DEC2100792ADF /* NSMutableAttributedString+Attributes.swift in Sources */,
 				2CDEBBF3225290DB003BB3A3 /* TransactionsViewController.swift in Sources */,
 				2C37E89D229C619600F7380F /* EmptyRow.swift in Sources */,
+				2C37E89F229C646F00F7380F /* UserView.swift in Sources */,
 				2C0B956A224DEC8F00792ADF /* UIView+Constraints.swift in Sources */,
 				2C37E891229C5F8E00F7380F /* TransactionsViewModel.swift in Sources */,
 				2C557CB52251523600525361 /* CALayer+Layout.swift in Sources */,

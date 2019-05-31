@@ -71,7 +71,7 @@ class TransactionCell: UITableViewCell {
 
 extension TransactionCell: ConfigurableCell {
     
-    static let defaultHeight: CGFloat? = 80
+    static let defaultHeight: CGFloat? = 78
     
     func configure(with viewModel: TransactionCellViewModel) {
         categoryLabel.attributedText = viewModel.category.with(.kern, value: 0.65)

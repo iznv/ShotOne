@@ -8,27 +8,29 @@
 
 import TableKit
 
-// MARK: - Constants
-
-private enum Constants {
+class TransactionsViewController: UIViewController {
     
-    enum Grip {
+    // MARK: - Constants
+    
+    enum Constants {
         
-        static let verticalMargin: CGFloat = 15
+        enum Grip {
+            
+            static let verticalMargin: CGFloat = 15
+            
+            static let height: CGFloat = 6
+            
+            static let width: CGFloat = 55
+            
+            static let cornerRadius: CGFloat = 5
+            
+        }
         
-        static let height: CGFloat = 6
+        static let headerBottom: CGFloat = 24
         
-        static let width: CGFloat = 55
-        
-        static let cornerRadius: CGFloat = 5
+        static let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 32, right: 0)
         
     }
-    
-    static let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 32, right: 0)
-    
-}
-
-class TransactionsViewController: UIViewController {
     
     // MARK: - Views
     
@@ -121,7 +123,7 @@ private extension TransactionsViewController {
     var headerRows: [Row] {
         return [
             TableRow<SectionHeaderCell>(item: viewModel.sectionHeaderViewModel),
-            EmptyRow(height: 24)
+            EmptyRow(height: Constants.headerBottom)
         ]
     }
     
