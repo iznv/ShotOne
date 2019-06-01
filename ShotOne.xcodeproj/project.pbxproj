@@ -41,6 +41,8 @@
 		2C557CB52251523600525361 /* CALayer+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C557CB42251523600525361 /* CALayer+Layout.swift */; };
 		2C557CB8225152DC00525361 /* BoundsHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C557CB7225152DC00525361 /* BoundsHolder.swift */; };
 		2C557CBB2251535300525361 /* CAGradientLayer+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C557CBA2251535300525361 /* CAGradientLayer+Colors.swift */; };
+		2C66EC2322A2ED2E00B85071 /* PathIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C66EC2222A2ED2E00B85071 /* PathIconView.swift */; };
+		2C66EC2722A2ED8700B85071 /* CGPath+Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C66EC2622A2ED8700B85071 /* CGPath+Paths.swift */; };
 		2C72099F22776EA800EF0ED4 /* CGFloat+Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C72099E22776EA800EF0ED4 /* CGFloat+Sign.swift */; };
 		2C897B50224941E2004523E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C897B4F224941E2004523E3 /* AppDelegate.swift */; };
 		2C897B57224941E4004523E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C897B56224941E4004523E3 /* Assets.xcassets */; };
@@ -93,6 +95,8 @@
 		2C557CB42251523600525361 /* CALayer+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Layout.swift"; sourceTree = "<group>"; };
 		2C557CB7225152DC00525361 /* BoundsHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundsHolder.swift; sourceTree = "<group>"; };
 		2C557CBA2251535300525361 /* CAGradientLayer+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+Colors.swift"; sourceTree = "<group>"; };
+		2C66EC2222A2ED2E00B85071 /* PathIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathIconView.swift; sourceTree = "<group>"; };
+		2C66EC2622A2ED8700B85071 /* CGPath+Paths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPath+Paths.swift"; sourceTree = "<group>"; };
 		2C72099E22776EA800EF0ED4 /* CGFloat+Sign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Sign.swift"; sourceTree = "<group>"; };
 		2C897B4C224941E2004523E3 /* ShotOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShotOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C897B4F224941E2004523E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -349,6 +353,14 @@
 			path = CAGradientLayer;
 			sourceTree = "<group>";
 		};
+		2C66EC2522A2ED7900B85071 /* CGPath */ = {
+			isa = PBXGroup;
+			children = (
+				2C66EC2622A2ED8700B85071 /* CGPath+Paths.swift */,
+			);
+			path = CGPath;
+			sourceTree = "<group>";
+		};
 		2C72099A22776CE600EF0ED4 /* BottomPanel */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +446,7 @@
 				2C897B6D22494866004523E3 /* BaseView.swift */,
 				2C897B6B2249479F004523E3 /* CurrencyView.swift */,
 				2C97A1A722889DEA00FF3393 /* GradientView.swift */,
+				2C66EC2222A2ED2E00B85071 /* PathIconView.swift */,
 				2C37E89E229C646F00F7380F /* UserView.swift */,
 				2C2DC2C1229EFE2300E7AB3F /* WalletView.swift */,
 			);
@@ -459,6 +472,7 @@
 			children = (
 				2C897B7122495355004523E3 /* CGColor */,
 				2C72099D22776E9400EF0ED4 /* CGFloat */,
+				2C66EC2522A2ED7900B85071 /* CGPath */,
 			);
 			path = CoreGraphics;
 			sourceTree = "<group>";
@@ -679,9 +693,11 @@
 				2C897B50224941E2004523E3 /* AppDelegate.swift in Sources */,
 				2C557CB322513F6300525361 /* CustomFont.swift in Sources */,
 				2C557CBB2251535300525361 /* CAGradientLayer+Colors.swift in Sources */,
+				2C66EC2722A2ED8700B85071 /* CGPath+Paths.swift in Sources */,
 				2C37E88F229C5E1200F7380F /* NSLayoutConstraint+Priority.swift in Sources */,
 				2C897B6C2249479F004523E3 /* CurrencyView.swift in Sources */,
 				2C37E89B229C615300F7380F /* EmptyCell.swift in Sources */,
+				2C66EC2322A2ED2E00B85071 /* PathIconView.swift in Sources */,
 				2C49D0B8229AFFC400685B4D /* WalletsCell.swift in Sources */,
 				2C49D0AA229ACE3100685B4D /* UIApplication+SafeArea.swift in Sources */,
 				2C557CB8225152DC00525361 /* BoundsHolder.swift in Sources */,

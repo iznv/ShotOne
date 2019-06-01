@@ -12,6 +12,16 @@ import TableKit
 
 private enum Constants {
 
+    enum PathIconView {
+        
+        static let leading: CGFloat = 35.5
+        
+        static let top: CGFloat = 17.5
+        
+        static let size: CGFloat = 13
+        
+    }
+
     static let categoryLabelLeading: CGFloat = 79
     
     static let placeLabelTop: CGFloat = 8
@@ -51,6 +61,8 @@ class TransactionCell: UITableViewCell {
         return view
     }()
     
+    private let pathIconView = PathIconView()
+    
     // MARK: - Init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -77,6 +89,15 @@ extension TransactionCell: ConfigurableCell {
         categoryLabel.attributedText = viewModel.category.with(.kern, value: 0.65)
         placeLabel.attributedText = viewModel.place.with(.kern, value: 0.18)
         priceLabel.attributedText = viewModel.price.with(.kern, value: 0.65)
+        
+        configurePathIconView(with: viewModel)
+    }
+    
+    private func configurePathIconView(with viewModel: TransactionCellViewModel) {
+        pathIconView.pathMaker = viewModel.pathMaker
+        pathIconView.color = viewModel.pathColor
+        
+        pathIconView.setNeedsDisplay()
     }
     
 }
@@ -87,6 +108,7 @@ private extension TransactionCell {
     
     func addViews() {
         contentView.addSubviews(
+            pathIconView,
             categoryLabel,
             placeLabel,
             priceLabel
@@ -100,9 +122,19 @@ private extension TransactionCell {
 private extension TransactionCell {
     
     func configureConstraints() {
+        configurePathIconViewConstraints()
         configureCategoryLabelConstraints()
         configurePlaceLabelConstraints()
         configurePriceLabelConstraints()
+    }
+    
+    func configurePathIconViewConstraints() {
+        pathIconView.activate {[
+            $0.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.PathIconView.leading),
+            $0.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.PathIconView.top),
+            $0.heightAnchor.constraint(equalToConstant: Constants.PathIconView.size),
+            $0.widthAnchor.constraint(equalToConstant: Constants.PathIconView.size)
+        ]}
     }
     
     func configureCategoryLabelConstraints() {
@@ -111,16 +143,14 @@ private extension TransactionCell {
             $0.topAnchor.constraint(equalTo: contentView.topAnchor)
         ]}
     }
-    
-    
+
     func configurePlaceLabelConstraints() {
         placeLabel.activate {[
             $0.leadingAnchor.constraint(equalTo: categoryLabel.leadingAnchor),
             $0.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: Constants.placeLabelTop)
         ]}
     }
-    
-    
+
     func configurePriceLabelConstraints() {
         priceLabel.activate {[
             $0.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Constants.priceLabelTrailing),

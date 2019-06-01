@@ -6,6 +6,8 @@
 //  Copyright © 2019 Ivan Zinovyev. All rights reserved.
 //
 
+import UIKit
+
 struct TransactionCellViewModel {
     
     let category: String
@@ -13,5 +15,9 @@ struct TransactionCellViewModel {
     let place: String
     
     let price: String
+    
+    let pathColor: UIColor
+    
+    let pathMaker: (CGRect) -> CGPath
     
 }
