@@ -42,16 +42,26 @@ class MainViewController: UIViewController {
         let layer = CAGradientLayer()
         
         layer.contentsScale = UIScreen.main.nativeScale
-        layer.set(colors: [ #colorLiteral(red: 0.5176470588, green: 0.2470588235, blue: 1, alpha: 1), #colorLiteral(red: 0.2941176471, green: 0.1490196078, blue: 1, alpha: 1) ])
+        layer.set(colors: [ #colorLiteral(red: 0.5176470588, green: 0.2470588235, blue: 1, alpha: 1), #colorLiteral(red: 0.1726784661, green: 0.1032783034, blue: 0.999260366, alpha: 1) ])
         layer.frame = view.frame
         
         return layer
+    }()
+    
+    private let backgroundImageView: UIImageView = {
+        let view = UIImageView()
+        
+        view.contentMode = .scaleAspectFill
+        view.image = #imageLiteral(resourceName: "main_background")
+        
+        return view
     }()
     
     private let userView: UserView = {
         let view = UserView()
         
         view.title = "Hey, Veronica"
+        view.image = #imageLiteral(resourceName: "user")
         
         return view
     }()
@@ -73,6 +83,7 @@ class MainViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.5725490196, blue: 0.6352941176, alpha: 1)
         view.value = "$22.00"
         view.title = "Crypto"
+        view.backgroundImage = #imageLiteral(resourceName: "crypto_wallet_background")
         
         return view
     }()
@@ -83,6 +94,7 @@ class MainViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.5725490196, blue: 0.6352941176, alpha: 1)
         view.value = "$135.00"
         view.title = "Dollars"
+        view.backgroundImage = #imageLiteral(resourceName: "dollars_wallet_background")
         
         return view
     }()
@@ -160,6 +172,7 @@ private extension MainViewController {
         view.layer.addSublayer(gradientLayer)
         
         view.addSubviews(
+            backgroundImageView,
             userView,
             balanceView,
             walletsContainerView,
@@ -175,11 +188,20 @@ private extension MainViewController {
 private extension MainViewController {
     
     func configureConstraints() {
+        configureBackgroundImageViewConstraints()
         configureUserViewConstraints()
         configureBalanceViewConstraints()
         configureWalletsContainerViewConstraints()
         configureCryptoWalletViewConstraints()
         configureDollarsWalletViewConstraints()
+    }
+    
+    func configureBackgroundImageViewConstraints() {
+        backgroundImageView.activate {[
+            $0.topAnchor.constraint(equalTo: view.topAnchor),
+            $0.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            $0.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ]}
     }
     
     func configureUserViewConstraints() {

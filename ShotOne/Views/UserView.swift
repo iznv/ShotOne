@@ -32,6 +32,7 @@ class UserView: BaseView {
         let view = UIImageView()
         
         view.layer.cornerRadius = 14
+        view.layer.masksToBounds = true
         view.backgroundColor = .white
         
         return view
@@ -47,6 +48,12 @@ class UserView: BaseView {
     }()
     
     // MARK: - Properties
+    
+    var image: UIImage? = nil {
+        didSet {
+            userPicImageView.image = image
+        }
+    }
     
     var title: String = .empty {
         didSet {

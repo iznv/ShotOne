@@ -33,6 +33,7 @@ class PathIconView: BaseView {
     lazy var pathLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         
+        layer.contentsScale = UIScreen.main.nativeScale
         layer.fillColor = UIColor.clear.cgColor
         layer.lineWidth = 4.5
         

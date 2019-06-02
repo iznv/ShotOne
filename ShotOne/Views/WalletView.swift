@@ -36,7 +36,15 @@ class WalletView: BaseView {
     
     // MARK: - Views
     
-    let valueLabel: UILabel = {
+    private let backgroundImageView: UIImageView = {
+        let view = UIImageView()
+        
+        view.contentMode = .scaleAspectFill
+        
+        return view
+    }()
+    
+    private let valueLabel: UILabel = {
         let label = UILabel()
         
         label.font = .custom(font: CustomFont.quicksand, ofSize: 26, weight: .medium)
@@ -46,7 +54,7 @@ class WalletView: BaseView {
         return label
     }()
     
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         
         label.font = .custom(font: CustomFont.quicksand, ofSize: 14, weight: .medium)
@@ -70,6 +78,12 @@ class WalletView: BaseView {
         }
     }
     
+    var backgroundImage: UIImage? = nil {
+        didSet {
+            backgroundImageView.image = backgroundImage
+        }
+    }
+    
     // MARK: - Init
     
     override func initialize() {
@@ -86,6 +100,7 @@ private extension WalletView {
     
     func addViews() {
         addSubviews(
+            backgroundImageView,
             valueLabel,
             titleLabel
         )
@@ -98,8 +113,18 @@ private extension WalletView {
 private extension WalletView {
     
     func configureConstraints() {
+        configureBackgroundImageViewConstraints()
         configureValueLabelConstraints()
         configureTitleLabelConstraints()
+    }
+    
+    func configureBackgroundImageViewConstraints() {
+        backgroundImageView.activate {[
+            $0.leadingAnchor.constraint(equalTo: leadingAnchor),
+            $0.trailingAnchor.constraint(equalTo: trailingAnchor),
+            $0.topAnchor.constraint(equalTo: topAnchor),
+            $0.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ]}
     }
     
     func configureValueLabelConstraints() {
@@ -126,6 +151,7 @@ private extension WalletView {
     
     func configureAppearance() {
         layer.cornerRadius = Constants.cornerRadius
+        layer.masksToBounds = true
     }
     
 }
