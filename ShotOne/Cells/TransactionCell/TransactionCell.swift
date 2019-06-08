@@ -37,7 +37,6 @@ class TransactionCell: UITableViewCell {
     private let categoryLabel: UILabel = {
         let view = UILabel()
         
-        view.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         view.font = UIFont.custom(font: CustomFont.quicksand, ofSize: 16, weight: .medium)
         
         return view
@@ -45,8 +44,7 @@ class TransactionCell: UITableViewCell {
     
     private let placeLabel: UILabel = {
         let view = UILabel()
-        
-        view.textColor = #colorLiteral(red: 0.6823529412, green: 0.7019607843, blue: 0.8392156863, alpha: 1)
+
         view.font = UIFont.custom(font: CustomFont.quicksand, ofSize: 13, weight: .medium)
         
         return view
@@ -55,7 +53,6 @@ class TransactionCell: UITableViewCell {
     private let priceLabel: UILabel = {
         let view = UILabel()
         
-        view.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         view.font = UIFont.custom(font: CustomFont.quicksand, ofSize: 16, weight: .medium)
         
         return view
@@ -67,6 +64,8 @@ class TransactionCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        enableTheme(for: self)
         
         addViews()
         configureConstraints()
@@ -96,8 +95,19 @@ extension TransactionCell: ConfigurableCell {
     private func configurePathIconView(with viewModel: TransactionCellViewModel) {
         pathIconView.pathMaker = viewModel.pathMaker
         pathIconView.color = viewModel.pathColor
-        
-        pathIconView.setNeedsDisplay()
+    }
+    
+}
+
+// MARK: - Themeable
+
+extension TransactionCell: Themeable {
+    
+    func apply(theme: Theme) {
+        categoryLabel.textColor = theme.primaryTextColor
+        placeLabel.textColor = theme.secondaryTextColor
+        priceLabel.textColor = theme.primaryTextColor
+        pathIconView.shouldShowShadow = theme.shouldShowPathIconShadow
     }
     
 }

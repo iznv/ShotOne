@@ -64,8 +64,6 @@ private struct Defaults {
         
         static let topPadding: CGFloat = 26
         
-        static let colors = [ #colorLiteral(red: 0.2235294118, green: 0.2352941176, blue: 0.4117647059, alpha: 1), #colorLiteral(red: 0.1529411765, green: 0.1882352941, blue: 0.2980392157, alpha: 1) ]
-        
     }
     
     struct Title {
@@ -109,7 +107,7 @@ class CurrencyView: BaseView {
 
         layer.contentsScale = UIScreen.main.nativeScale
         layer.cornerRadius = Defaults.Background.cornerRadius
-        layer.set(colors: Defaults.Background.colors)
+        layer.addShadow(radius: 30, opacity: 0.1, dx: 15, dy: 20)
         
         layer.layout(topPadding: Defaults.Background.topPadding, relativeTo: self)
         
@@ -162,10 +160,6 @@ class CurrencyView: BaseView {
         didSet { valueLabel.attributedText = attributedValue }
     }
     
-    @objc dynamic var backgroundColors = Defaults.Background.colors {
-        didSet { backgroundLayer.set(colors: backgroundColors) }
-    }
-    
     @objc dynamic var backgroundCornerRadius = Defaults.Background.cornerRadius {
         didSet { backgroundLayer.cornerRadius = backgroundCornerRadius }
     }
@@ -209,8 +203,22 @@ class CurrencyView: BaseView {
     // MARK: - Overrides
     
     override func initialize() {
+        enableTheme(for: self)
+        
         addViews()
         configureConstraints()
+    }
+    
+}
+
+// MARK: Themeable
+
+extension CurrencyView: Themeable {
+    
+    func apply(theme: Theme) {
+        backgroundLayer.set(colors: theme.currencyBackgroundColors)
+        valueLabel.textColor = theme.primaryTextColor
+        titleLabel.textColor = theme.secondaryTextColor
     }
     
 }

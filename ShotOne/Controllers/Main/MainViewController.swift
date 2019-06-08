@@ -42,7 +42,6 @@ class MainViewController: UIViewController {
         let layer = CAGradientLayer()
         
         layer.contentsScale = UIScreen.main.nativeScale
-        layer.set(colors: [ #colorLiteral(red: 0.5176470588, green: 0.2470588235, blue: 1, alpha: 1), #colorLiteral(red: 0.1726784661, green: 0.1032783034, blue: 0.999260366, alpha: 1) ])
         layer.frame = view.frame
         
         return layer
@@ -52,7 +51,7 @@ class MainViewController: UIViewController {
         let view = UIImageView()
         
         view.contentMode = .scaleAspectFill
-        view.image = #imageLiteral(resourceName: "main_background")
+        view.image = .mainBackground
         
         return view
     }()
@@ -61,7 +60,7 @@ class MainViewController: UIViewController {
         let view = UserView()
         
         view.title = "Hey, Veronica"
-        view.image = #imageLiteral(resourceName: "user")
+        view.image = .userPicture
         
         return view
     }()
@@ -79,22 +78,18 @@ class MainViewController: UIViewController {
     
     private let cryptoWalletView: WalletView = {
         let view = WalletView()
-        
-        view.backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.5725490196, blue: 0.6352941176, alpha: 1)
+
         view.value = "$22.00"
         view.title = "Crypto"
-        view.backgroundImage = #imageLiteral(resourceName: "crypto_wallet_background")
         
         return view
     }()
     
-    private let dallarsWalletView: WalletView = {
+    private let dollarsWalletView: WalletView = {
         let view = WalletView()
-        
-        view.backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.5725490196, blue: 0.6352941176, alpha: 1)
+
         view.value = "$135.00"
         view.title = "Dollars"
-        view.backgroundImage = #imageLiteral(resourceName: "dollars_wallet_background")
         
         return view
     }()
@@ -150,8 +145,12 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        enableTheme(for: view)
+        
         addViews()
         configureConstraints()
+        
+        userView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleTheme)))
         
         addBottomSheet()
     }
@@ -160,6 +159,29 @@ class MainViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+}
+
+// MARK: - Themeable
+
+extension MainViewController: Themeable {
+    
+    func apply(theme: Theme) {
+        gradientLayer.set(colors: theme.mainBackgroundColors)
+        backgroundImageView.alpha = theme.mainBackgroundImageAlpha
+        cryptoWalletView.backgroundImage = theme.cryptoWalletImage
+        dollarsWalletView.backgroundImage = theme.dollarsWalletImage
+    }
+    
+}
+
+// MARK: - Actions
+
+private extension MainViewController {
+    
+    @objc func toggleTheme() {
+        ThemeManager.toggleTheme()
     }
     
 }
@@ -177,7 +199,7 @@ private extension MainViewController {
             balanceView,
             walletsContainerView,
             cryptoWalletView,
-            dallarsWalletView
+            dollarsWalletView
         )
     }
     
@@ -239,7 +261,7 @@ private extension MainViewController {
     }
     
     func configureDollarsWalletViewConstraints() {
-        dallarsWalletView.activate {[
+        dollarsWalletView.activate {[
             $0.topAnchor.constraint(equalTo: walletsContainerView.topAnchor),
             $0.bottomAnchor.constraint(equalTo: walletsContainerView.bottomAnchor),
             $0.widthAnchor.constraint(equalTo: cryptoWalletView.widthAnchor),

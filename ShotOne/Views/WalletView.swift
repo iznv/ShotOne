@@ -26,6 +26,8 @@ private enum Constants {
         
         static let value = 1.2
         
+        static let largeValue = 2.5
+        
     }
     
     static let cornerRadius: CGFloat = 22
@@ -64,11 +66,22 @@ class WalletView: BaseView {
         return label
     }()
     
+    private let largeValueLabel: UILabel = {
+        let label = UILabel()
+        
+        label.font = .custom(font: CustomFont.quicksand, ofSize: 88, weight: .bold)
+        label.textColor = .white
+        label.textAlignment = .center
+        
+        return label
+    }()
+    
     // MARK: - Properties
     
     var value: String = .empty {
         didSet {
             valueLabel.attributedText = value.with(.kern, value: Constants.Kern.value)
+            largeValueLabel.attributedText = value.with(.kern, value: Constants.Kern.largeValue)
         }
     }
     
@@ -87,9 +100,33 @@ class WalletView: BaseView {
     // MARK: - Init
     
     override func initialize() {
+        enableTheme(for: self)
+        
         addViews()
         configureConstraints()
         configureAppearance()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let path = UIBezierPath(roundedRect: bounds,
+                                byRoundingCorners: [.allCorners],
+                                cornerRadii: CGSize(width: Constants.cornerRadius, height: Constants.cornerRadius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        
+        backgroundImageView.layer.mask = mask
+    }
+    
+}
+
+// MARK: - Themeable
+
+extension WalletView: Themeable {
+    
+    func apply(theme: Theme) {
+        largeValueLabel.alpha = theme.walletLargeValueAlpha
     }
     
 }
@@ -101,6 +138,7 @@ private extension WalletView {
     func addViews() {
         addSubviews(
             backgroundImageView,
+            largeValueLabel,
             valueLabel,
             titleLabel
         )
@@ -114,6 +152,7 @@ private extension WalletView {
     
     func configureConstraints() {
         configureBackgroundImageViewConstraints()
+        configureLargeValueLabelConstraints()
         configureValueLabelConstraints()
         configureTitleLabelConstraints()
     }
@@ -124,6 +163,13 @@ private extension WalletView {
             $0.trailingAnchor.constraint(equalTo: trailingAnchor),
             $0.topAnchor.constraint(equalTo: topAnchor),
             $0.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ]}
+    }
+    
+    func configureLargeValueLabelConstraints() {
+        largeValueLabel.activate {[
+            $0.centerXAnchor.constraint(equalTo: centerXAnchor),
+            $0.centerYAnchor.constraint(equalTo: centerYAnchor)
         ]}
     }
     

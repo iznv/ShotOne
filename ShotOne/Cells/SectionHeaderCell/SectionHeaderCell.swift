@@ -25,7 +25,6 @@ class SectionHeaderCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let view = UILabel()
         
-        view.textColor = #colorLiteral(red: 0.5058823529, green: 0.5294117647, blue: 0.7176470588, alpha: 1)
         view.font = UIFont.custom(font: CustomFont.quicksand, ofSize: 13, weight: .medium)
         
         return view
@@ -35,6 +34,8 @@ class SectionHeaderCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        enableTheme(for: self)
         
         addViews()
         configureConstraints()
@@ -55,6 +56,16 @@ extension SectionHeaderCell: ConfigurableCell {
     
     func configure(with viewModel: SectionHeaderCellViewModel) {
         titleLabel.attributedText = viewModel.title.with(.kern, value: Constants.titleKern)
+    }
+    
+}
+
+// MARK: - Themeable
+
+extension SectionHeaderCell: Themeable {
+    
+    func apply(theme: Theme) {
+        titleLabel.textColor = theme.transactionsHeaderColor
     }
     
 }

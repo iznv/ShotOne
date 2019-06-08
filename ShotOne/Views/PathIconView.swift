@@ -42,9 +42,23 @@ class PathIconView: BaseView {
     
     // MARK: - Properties
     
-    var pathMaker: ((CGRect) -> CGPath)?
+    var pathMaker: ((CGRect) -> CGPath)? {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     
-    var color: UIColor = .white
+    var color: UIColor = .white {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    var shouldShowShadow: Bool = true {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     
     // MARK: - Overrides
     
@@ -58,11 +72,16 @@ class PathIconView: BaseView {
         pathLayer.path = pathMaker(rect)
         pathLayer.strokeColor = color.cgColor
         
-        pathLayer.addShadow(color: color,
-                            radius: Constants.Shadow.radius,
-                            opacity: Constants.Shadow.opacity,
-                            dx: Constants.Shadow.dx,
-                            dy: Constants.Shadow.dy)
+        if shouldShowShadow {
+            pathLayer.addShadow(color: color,
+                                radius: Constants.Shadow.radius,
+                                opacity: Constants.Shadow.opacity,
+                                dx: Constants.Shadow.dx,
+                                dy: Constants.Shadow.dy)
+        } else {
+            pathLayer.shadowOpacity = 0
+        }
+        
         
         guard let box = pathLayer.path?.boundingBox else { return }
         

@@ -34,16 +34,11 @@ class TransactionsViewController: UIViewController {
     
     // MARK: - Views
     
-    private let gradientView: GradientView = {
-        let view = GradientView()
-        view.set(colors: [ #colorLiteral(red: 0.1843137255, green: 0.2235294118, blue: 0.3411764706, alpha: 1), #colorLiteral(red: 0.09463696531, green: 0.1070505067, blue: 0.2135726927, alpha: 1) ])
-        return view
-    }()
+    private let gradientView = GradientView()
     
     private let gripView: UIView = {
         let view = UIView()
-        
-        view.backgroundColor = #colorLiteral(red: 0.3137254902, green: 0.1568627451, blue: 1, alpha: 1)
+    
         view.layer.cornerRadius = Constants.Grip.cornerRadius
         
         return view
@@ -84,10 +79,23 @@ class TransactionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        enableTheme(for: view)
+
         addViews()
         configureConstraints()
         
         configureTableView()
+    }
+    
+}
+
+// MARK: - Themeable
+
+extension TransactionsViewController: Themeable {
+    
+    func apply(theme: Theme) {
+        gradientView.set(colors: theme.transactionsBackgroundColors)
+        gripView.backgroundColor = theme.gripColor
     }
     
 }
