@@ -17,7 +17,8 @@ private enum Constants {
         static let duration = 0.5
         
         static let options: UIView.AnimationOptions = [
-            .transitionCrossDissolve
+            .transitionCrossDissolve,
+            .allowUserInteraction
         ]
 
     }
