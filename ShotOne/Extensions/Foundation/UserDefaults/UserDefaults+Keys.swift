@@ -8,21 +8,29 @@
 
 import Foundation
 
-private enum Keys {
-
-    static let theme = "theme"
+extension UserDefaults {
+    
+    // MARK: - Keys
+    
+    enum Keys {
+        
+        static let themeId = "themeId"
+        
+    }
 
 }
 
+// MARK: - Values
+
 extension UserDefaults {
-    
-    var theme: Int {
+
+    var themeId: String? {
         get {
-            return integer(forKey: Keys.theme)
+            return string(forKey: Keys.themeId)
         }
         set {
-            set(newValue, forKey: Keys.theme)
+            set(newValue, forKey: Keys.themeId)
         }
     }
-
+    
 }

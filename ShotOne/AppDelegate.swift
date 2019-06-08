@@ -9,12 +9,24 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder {
+    
+    // MARK: - Properties
 
     var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
+    
+    private let userDefaults = UserDefaults.standard
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+}
+
+// MARK: - UIApplicationDelegate
+
+extension AppDelegate: UIApplicationDelegate {
+    
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        configureUserDefaults()
         configureAppearance()
         
         window?.rootViewController = MainViewController()
@@ -22,12 +34,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
+    
 }
 
 // MARK: - Appearance
 
 private extension AppDelegate {
+    
+    func configureUserDefaults() {
+        userDefaults.register(defaults: [UserDefaults.Keys.themeId : ThemeManager.defaultTheme.id])
+    }
     
     func configureAppearance() {
         CurrencyView.appearance().configure()

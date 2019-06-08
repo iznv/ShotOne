@@ -170,8 +170,8 @@ extension MainViewController: Themeable {
     func apply(theme: Theme) {
         gradientLayer.set(colors: theme.mainBackgroundColors)
         backgroundImageView.alpha = theme.mainBackgroundImageAlpha
-        cryptoWalletView.backgroundImage = theme.cryptoWalletImage
-        dollarsWalletView.backgroundImage = theme.dollarsWalletImage
+        cryptoWalletView.backgroundImage = theme.cryptoWalletBackgroundImage
+        dollarsWalletView.backgroundImage = theme.dollarsWalletBackgroundImage
     }
     
 }

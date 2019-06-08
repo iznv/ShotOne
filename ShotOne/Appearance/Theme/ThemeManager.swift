@@ -14,19 +14,28 @@ enum ThemeManager {
     
     static let defaultTheme: Theme = .dark
     
-    private static let userDefaults = UserDefaults.standard
+    private static let themes: [Theme] = [
+        .dark,
+        .light
+    ]
     
-    // MARK: - Computed Properties
+    private static let userDefaults = UserDefaults.standard
+
+}
+
+// MARK: - Computed Properties
+
+extension ThemeManager {
     
     static var theme: Theme {
         get {
-            return Theme(rawValue: userDefaults.theme) ?? defaultTheme
+            return themes.first { $0.id == userDefaults.themeId } ?? defaultTheme
         }
         set {
-            userDefaults.theme = newValue.rawValue
+            userDefaults.themeId = newValue.id
         }
     }
-
+    
 }
 
 // MARK: - Public
@@ -38,7 +47,15 @@ extension ThemeManager {
     }
     
     static func toggleTheme() {
-        theme = theme == .light ? .dark : .light
+        switch theme.id {
+        case Theme.lightThemeId:
+            theme = .dark
+        case Theme.darkThemeId:
+            theme = .light
+        default:
+            theme = defaultTheme
+        }
+
         apply(theme: theme)
     }
 

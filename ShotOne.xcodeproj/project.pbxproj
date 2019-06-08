@@ -64,9 +64,8 @@
 		2CDEBBF3225290DB003BB3A3 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBBF2225290DB003BB3A3 /* TransactionsViewController.swift */; };
 		2CEA5D5422AC353E0076D10E /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA5D5322AC353E0076D10E /* UIColor+Colors.swift */; };
 		2CEA5D5622AC35590076D10E /* UIImage+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA5D5522AC35590076D10E /* UIImage+Images.swift */; };
-		2CEA5D5822AC37600076D10E /* Theme+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA5D5722AC37600076D10E /* Theme+Images.swift */; };
-		2CEA5D5A22AC39080076D10E /* Theme+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA5D5922AC39080076D10E /* Theme+Colors.swift */; };
-		2CEA5D5C22AC39600076D10E /* Theme+Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA5D5B22AC39600076D10E /* Theme+Values.swift */; };
+		2CEA5D5F22AC4D9D0076D10E /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA5D5E22AC4D9D0076D10E /* DarkTheme.swift */; };
+		2CEA5D6122AC4DD60076D10E /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA5D6022AC4DD60076D10E /* LightTheme.swift */; };
 		2CECB8E222ABF23F0074C165 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CECB8E122ABF23F0074C165 /* Colors.xcassets */; };
 		DDF87E2B25455B8F60E11524 /* Pods_ShotOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB0176BFFF1F6CE487220A7 /* Pods_ShotOne.framework */; };
 /* End PBXBuildFile section */
@@ -131,9 +130,8 @@
 		2CDEBBF2225290DB003BB3A3 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		2CEA5D5322AC353E0076D10E /* UIColor+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
 		2CEA5D5522AC35590076D10E /* UIImage+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Images.swift"; sourceTree = "<group>"; };
-		2CEA5D5722AC37600076D10E /* Theme+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Images.swift"; sourceTree = "<group>"; };
-		2CEA5D5922AC39080076D10E /* Theme+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Colors.swift"; sourceTree = "<group>"; };
-		2CEA5D5B22AC39600076D10E /* Theme+Values.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Values.swift"; sourceTree = "<group>"; };
+		2CEA5D5E22AC4D9D0076D10E /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
+		2CEA5D6022AC4DD60076D10E /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		2CECB8E122ABF23F0074C165 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5FB0176BFFF1F6CE487220A7 /* Pods_ShotOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShotOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80264DEEAA0DD898BF03E839 /* Pods-ShotOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShotOne.debug.xcconfig"; path = "Target Support Files/Pods-ShotOne/Pods-ShotOne.debug.xcconfig"; sourceTree = "<group>"; };
@@ -350,7 +348,7 @@
 				2CEA5D5122AC350B0076D10E /* Colors */,
 				2C557CB122513F5800525361 /* Fonts */,
 				2CEA5D5222AC35120076D10E /* Images */,
-				2C7BB23122A43D0D0085E427 /* Themes */,
+				2C7BB23122A43D0D0085E427 /* Theme */,
 			);
 			path = Appearance;
 			sourceTree = "<group>";
@@ -404,17 +402,15 @@
 			path = CGFloat;
 			sourceTree = "<group>";
 		};
-		2C7BB23122A43D0D0085E427 /* Themes */ = {
+		2C7BB23122A43D0D0085E427 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
+				2CEA5D5D22AC4D910076D10E /* Themes */,
 				2C7BB23622A43DB10085E427 /* Theme.swift */,
 				2C7BB23222A43D440085E427 /* Themeable.swift */,
 				2C7BB23422A43D8A0085E427 /* ThemeManager.swift */,
-				2CEA5D5722AC37600076D10E /* Theme+Images.swift */,
-				2CEA5D5922AC39080076D10E /* Theme+Colors.swift */,
-				2CEA5D5B22AC39600076D10E /* Theme+Values.swift */,
 			);
-			path = Themes;
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		2C7BB23822A43E0C0085E427 /* UserDefaults */ = {
@@ -623,6 +619,15 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		2CEA5D5D22AC4D910076D10E /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				2CEA5D5E22AC4D9D0076D10E /* DarkTheme.swift */,
+				2CEA5D6022AC4DD60076D10E /* LightTheme.swift */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
 		56948D1CC7AD95D0F25F47CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,6 +785,7 @@
 				2C557CB8225152DC00525361 /* BoundsHolder.swift in Sources */,
 				2CEA5D5422AC353E0076D10E /* UIColor+Colors.swift in Sources */,
 				2C37E8A1229C6CBC00F7380F /* BalanceView.swift in Sources */,
+				2CEA5D6122AC4DD60076D10E /* LightTheme.swift in Sources */,
 				2C0B9563224DEBE500792ADF /* String+Attributes.swift in Sources */,
 				2C557CA622513D5D00525361 /* CurrencyView+Appearance.swift in Sources */,
 				2C897B7322495366004523E3 /* CGColor+UIColor.swift in Sources */,
@@ -787,19 +793,17 @@
 				2C72099F22776EA800EF0ED4 /* CGFloat+Sign.swift in Sources */,
 				2C49D0AE229AF2C800685B4D /* SectionHeaderCell.swift in Sources */,
 				2C557CAC22513EFA00525361 /* UIFont+CustomFont.swift in Sources */,
-				2CEA5D5A22AC39080076D10E /* Theme+Colors.swift in Sources */,
 				2C7BB23522A43D8A0085E427 /* ThemeManager.swift in Sources */,
 				2C0B956E224DEDBB00792ADF /* CALayer+Shadow.swift in Sources */,
 				2CDDAE53226F8592008EB265 /* BottomPanel.swift in Sources */,
+				2CEA5D5F22AC4D9D0076D10E /* DarkTheme.swift in Sources */,
 				2C897B772249550D004523E3 /* CALayer+AddSublayers.swift in Sources */,
 				2C557CA822513E8000525361 /* UIView+AddSubviews.swift in Sources */,
 				2C49D0B0229AF2D000685B4D /* SectionHeaderCellViewModel.swift in Sources */,
-				2CEA5D5822AC37600076D10E /* Theme+Images.swift in Sources */,
 				2C0B9567224DEC2100792ADF /* NSMutableAttributedString+Attributes.swift in Sources */,
 				2CDEBBF3225290DB003BB3A3 /* TransactionsViewController.swift in Sources */,
 				2C37E89D229C619600F7380F /* EmptyRow.swift in Sources */,
 				2C37E89F229C646F00F7380F /* UserView.swift in Sources */,
-				2CEA5D5C22AC39600076D10E /* Theme+Values.swift in Sources */,
 				2C7BB23322A43D440085E427 /* Themeable.swift in Sources */,
 				2C0B956A224DEC8F00792ADF /* UIView+Constraints.swift in Sources */,
 				2C37E891229C5F8E00F7380F /* TransactionsViewModel.swift in Sources */,
