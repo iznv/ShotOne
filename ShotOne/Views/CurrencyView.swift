@@ -36,8 +36,6 @@ private struct Constants {
     
     struct Title {
         
-        static let color = #colorLiteral(red: 0.6, green: 0.631372549, blue: 0.7843137255, alpha: 1)
-        
         static let textAlignment: NSTextAlignment = .center
         
         static let topMargin: CGFloat = -18
@@ -45,8 +43,6 @@ private struct Constants {
     }
     
     struct Value {
-        
-        static let color = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         static let textAlignment: NSTextAlignment = .center
         
@@ -92,7 +88,7 @@ private struct Defaults {
     
     struct Bar {
         
-        static let color = #colorLiteral(red: 0.09803921569, green: 0.8235294118, blue: 0.4941176471, alpha: 1)
+        static let color: UIColor = .cryptoBar
         
     }
     
@@ -129,7 +125,6 @@ class CurrencyView: BaseView {
         let label = UILabel()
         
         label.font = Defaults.Title.font
-        label.textColor = Constants.Title.color
         label.textAlignment = Constants.Title.textAlignment
         
         return label
@@ -139,7 +134,6 @@ class CurrencyView: BaseView {
         let label = UILabel()
         
         label.font = Defaults.Value.font
-        label.textColor = Constants.Value.color
         label.textAlignment = Constants.Value.textAlignment
         
         return label

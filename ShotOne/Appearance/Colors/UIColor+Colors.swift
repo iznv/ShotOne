@@ -8,6 +8,24 @@
 
 import UIKit
 
+// MARK: - Common
+
+extension UIColor {
+    
+    static let cryptoBar = UIColor(named: "Crypto Bar")!
+    
+    static let dollarsBar = UIColor(named: "Dollars Bar")!
+    
+    static let groceryIcon = UIColor(named: "Grocery Icon")!
+    
+    static let hardwareIcon = UIColor(named: "Hardware Icon")!
+    
+    static let petrolIcon = UIColor(named: "Petrol Icon")!
+    
+    static let wardrobeIcon = UIColor(named: "Wardrobe Icon")!
+    
+}
+
 // MARK: - Dark
 
 extension UIColor {

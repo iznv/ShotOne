@@ -28,15 +28,15 @@ class WalletsCell: UITableViewCell {
     
     // MARK: - Views
     
-    lazy var currencyView1: CurrencyView = {
+    lazy var cryptoView: CurrencyView = {
         let view = CurrencyView()
-        view.barColor = #colorLiteral(red: 0.09803921569, green: 0.8235294118, blue: 0.4941176471, alpha: 1)
+        view.barColor = .cryptoBar
         return view
     }()
     
-    lazy var currencyView2: CurrencyView = {
+    lazy var dollarsView: CurrencyView = {
         let view = CurrencyView()
-        view.barColor = #colorLiteral(red: 1, green: 0.2862745098, blue: 0.5058823529, alpha: 1)
+        view.barColor = .dollarsBar
         return view
     }()
     
@@ -68,11 +68,11 @@ extension WalletsCell: ConfigurableCell {
     }
     
     func configure(with viewModel: WalletsCellViewModel) {
-        currencyView1.attributedTitle = "Crypto".with(.kern, value: Constants.titleKern)
-        currencyView1.attributedValue = "+19.06".with(.kern, value: Constants.valueKern)
+        cryptoView.attributedTitle = "Crypto".with(.kern, value: Constants.titleKern)
+        cryptoView.attributedValue = "+19.06".with(.kern, value: Constants.valueKern)
         
-        currencyView2.attributedTitle = "Dollars".with(.kern, value: Constants.titleKern)
-        currencyView2.attributedValue = "-02.24".with(.kern, value: Constants.valueKern)
+        dollarsView.attributedTitle = "Dollars".with(.kern, value: Constants.titleKern)
+        dollarsView.attributedValue = "-02.24".with(.kern, value: Constants.valueKern)
     }
     
 }
@@ -83,8 +83,8 @@ private extension WalletsCell {
     
     func addViews() {
         contentView.addSubviews(
-            currencyView1,
-            currencyView2
+            cryptoView,
+            dollarsView
         )
     }
     
@@ -100,21 +100,21 @@ private extension WalletsCell {
     }
     
     func configureCurrencyView1Constraints() {
-        currencyView1.activate {[
+        cryptoView.activate {[
             $0.topAnchor.constraint(equalTo: contentView.topAnchor),
-            currencyView1.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).with(priority: .defaultLow),
+            cryptoView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).with(priority: .defaultLow),
             $0.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.sideMargin),
-            $0.widthAnchor.constraint(equalTo: currencyView2.widthAnchor),
+            $0.widthAnchor.constraint(equalTo: dollarsView.widthAnchor),
             $0.heightAnchor.constraint(equalTo: $0.widthAnchor, multiplier: Constants.ratio)
         ]}
     }
 
     func configureCurrencyView2Constraints() {
-        currencyView2.activate {[
-            $0.topAnchor.constraint(equalTo: currencyView1.topAnchor),
-            $0.heightAnchor.constraint(equalTo: currencyView1.heightAnchor),
+        dollarsView.activate {[
+            $0.topAnchor.constraint(equalTo: cryptoView.topAnchor),
+            $0.heightAnchor.constraint(equalTo: cryptoView.heightAnchor),
             $0.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.sideMargin),
-            $0.leadingAnchor.constraint(equalTo: currencyView1.trailingAnchor, constant: Constants.spacing)
+            $0.leadingAnchor.constraint(equalTo: cryptoView.trailingAnchor, constant: Constants.spacing)
         ]}
     }
     
