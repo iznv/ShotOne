@@ -8,17 +8,17 @@
 
 import TableKit
 
-// MARK: - Constants
-
-private enum Constants {
-    
-    static let sideMargin: CGFloat = 30
-    
-    static let titleKern: CGFloat = 0.2
-    
-}
-
 class SectionHeaderCell: UITableViewCell {
+    
+    // MARK: - Constants
+    
+    private enum Constants {
+        
+        static let sideMargin: CGFloat = 30
+        
+        static let titleKern: CGFloat = 0.2
+        
+    }
     
     // MARK: - Views
     

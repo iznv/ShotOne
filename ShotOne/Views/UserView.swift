@@ -14,7 +14,7 @@ class UserView: BaseView {
     
     enum Constants {
         
-        enum Title {
+        fileprivate enum Title {
             
             static let kern: CGFloat = 0.5
             

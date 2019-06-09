@@ -8,45 +8,45 @@
 
 import UIKit
 
-// MARK: - Constants
+class BottomPanel: NSObject {
 
-private enum Constants {
+    // MARK: - Constants
     
-    enum Animation {
+    private enum Constants {
         
-        enum Duration {
+        enum Animation {
             
-            static let slow: TimeInterval = 0.5
+            enum Duration {
+                
+                static let slow: TimeInterval = 0.5
+                
+                static let fast: TimeInterval = 0.25
+                
+            }
             
-            static let fast: TimeInterval = 0.25
+            static let options: UIView.AnimationOptions = [
+                .curveEaseOut,
+                .beginFromCurrentState,
+                .allowUserInteraction
+            ]
+            
+            static let initialSpringVelocity: CGFloat = 0
+            
+            static let springDamping: CGFloat = 0.75
             
         }
         
-        static let options: UIView.AnimationOptions = [
-            .curveEaseOut,
-            .beginFromCurrentState,
-            .allowUserInteraction
-        ]
+        enum TranslationMultiplier {
+            
+            static let isOutside: CGFloat = 0.1
+            
+            static let isNotOutside: CGFloat = 1
+            
+        }
         
-        static let initialSpringVelocity: CGFloat = 0
-        
-        static let springDamping: CGFloat = 0.75
-        
-    }
-
-    enum TranslationMultiplier {
-        
-        static let isOutside: CGFloat = 0.1
-        
-        static let isNotOutside: CGFloat = 1
+        static let transitionThreshold: CGFloat = 100
         
     }
-    
-    static let transitionThreshold: CGFloat = 100
-    
-}
-
-class BottomPanel: NSObject {
     
     // MARK: - Constraints
     

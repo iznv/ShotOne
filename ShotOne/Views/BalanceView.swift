@@ -8,25 +8,26 @@
 
 import UIKit
 
-// MARK: - Constants
+class BalanceView: BaseView {
 
-private enum Constants {
+    // MARK: - Constants
     
-    enum Kern {
-    
-        static let title = 0.53
-    
-        static let value = 1.3
-    
+    private enum Constants {
+        
+        enum Kern {
+            
+            static let title = 0.53
+            
+            static let value = 1.3
+            
+        }
+        
+        static let titleLeading: CGFloat = 1
+        
+        static let valueTop: CGFloat = 13
+        
     }
 
-    static let titleLeading: CGFloat = 1
-    
-    static let valueTop: CGFloat = 13
-    
-}
-
-class BalanceView: BaseView {
     
     // MARK: - Views
     

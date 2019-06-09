@@ -8,33 +8,33 @@
 
 import UIKit
 
-// MARK: - Constants
-
-private enum Constants {
+class MainViewController: UIViewController {
     
-    enum UserView {
-
-        static let top: CGFloat = 71
+    // MARK: - Constants
+    
+    private enum Constants {
+        
+        enum UserView {
+            
+            static let top: CGFloat = 71
+            
+        }
+        
+        static let bottomPanelCornerRadius: CGFloat = 40
+        
+        static let minSpacing: CGFloat = 40
+        
+        static let balanceViewHeight: CGFloat = 60
+        
+        static let sideMargin: CGFloat = 30
+        
+        static let walletsSpacing: CGFloat = 26
+        
+        static let walletRatio: CGFloat = 1.3
+        
+        static let verticalSpacingsCount: CGFloat = 3
         
     }
-
-    static let bottomPanelCornerRadius: CGFloat = 40
-    
-    static let minSpacing: CGFloat = 40
-    
-    static let balanceViewHeight: CGFloat = 60
-
-    static let sideMargin: CGFloat = 30
-    
-    static let walletsSpacing: CGFloat = 26
-    
-    static let walletRatio: CGFloat = 1.3
-    
-    static let verticalSpacingsCount: CGFloat = 3
-
-}
-
-class MainViewController: UIViewController {
     
     // MARK: - Layers
     

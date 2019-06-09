@@ -8,33 +8,33 @@
 
 import UIKit
 
-// MARK: - Constants
-
-private enum Constants {
-    
-    enum Title {
-
-        static let sideMargin: CGFloat = 16
-        
-        static let bottom: CGFloat = 24.5
-        
-    }
-    
-    enum Kern {
-        
-        static let title = 0.9
-        
-        static let value = 1.2
-        
-        static let largeValue = 2.5
-        
-    }
-    
-    static let cornerRadius: CGFloat = 22
-    
-}
-
 class WalletView: BaseView {
+    
+    // MARK: - Constants
+    
+    private enum Constants {
+        
+        enum Title {
+            
+            static let sideMargin: CGFloat = 16
+            
+            static let bottom: CGFloat = 24.5
+            
+        }
+        
+        enum Kern {
+            
+            static let title = 0.9
+            
+            static let value = 1.2
+            
+            static let largeValue = 2.5
+            
+        }
+        
+        static let cornerRadius: CGFloat = 22
+        
+    }
     
     // MARK: - Views
     

@@ -20,15 +20,15 @@ class TransactionsViewController: UIViewController {
             
             static let height: CGFloat = 6
             
-            static let width: CGFloat = 55
+            fileprivate static let width: CGFloat = 55
             
-            static let cornerRadius: CGFloat = 5
+            fileprivate static let cornerRadius: CGFloat = 5
             
         }
         
         static let headerBottom: CGFloat = 24
         
-        static let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 32, right: 0)
+        fileprivate static let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 32, right: 0)
         
     }
     

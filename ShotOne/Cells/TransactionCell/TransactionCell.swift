@@ -8,29 +8,29 @@
 
 import TableKit
 
-// MARK: - Constants
-
-private enum Constants {
-
-    enum PathIconView {
+class TransactionCell: UITableViewCell {
+    
+    // MARK: - Constants
+    
+    private enum Constants {
         
-        static let leading: CGFloat = 35.5
+        enum PathIconView {
+            
+            static let leading: CGFloat = 35.5
+            
+            static let top: CGFloat = 17.5
+            
+            static let size: CGFloat = 13
+            
+        }
         
-        static let top: CGFloat = 17.5
+        static let categoryLabelLeading: CGFloat = 79
         
-        static let size: CGFloat = 13
+        static let placeLabelTop: CGFloat = 8
+        
+        static let priceLabelTrailing: CGFloat = -30
         
     }
-
-    static let categoryLabelLeading: CGFloat = 79
-    
-    static let placeLabelTop: CGFloat = 8
-    
-    static let priceLabelTrailing: CGFloat = -30
-    
-}
-
-class TransactionCell: UITableViewCell {
     
     // MARK: - Views
     

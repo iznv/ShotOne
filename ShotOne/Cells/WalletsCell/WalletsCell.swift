@@ -8,23 +8,23 @@
 
 import TableKit
 
-// MARK: - Constants
-
-private enum Constants {
-    
-    static let sideMargin: CGFloat = 32
-    
-    static let spacing: CGFloat = 28
-    
-    static let ratio: CGFloat = 1.72
-    
-    static let titleKern: CGFloat = 0.6
-    
-    static let valueKern: CGFloat = 1
-
-}
-
 class WalletsCell: UITableViewCell {
+    
+    // MARK: - Constants
+    
+    private enum Constants {
+        
+        static let sideMargin: CGFloat = 32
+        
+        static let spacing: CGFloat = 28
+        
+        static let ratio: CGFloat = 1.72
+        
+        static let titleKern: CGFloat = 0.6
+        
+        static let valueKern: CGFloat = 1
+        
+    }
     
     // MARK: - Views
     
