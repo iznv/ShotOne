@@ -152,46 +152,34 @@ class CurrencyView: BaseView {
     
     // MARK: - Properties
     
-    @objc dynamic var attributedTitle = Defaults.Title.attributedText {
-        didSet { titleLabel.attributedText = attributedTitle }
-    }
-    
-    @objc dynamic var attributedValue = Defaults.Value.attributedText {
-        didSet { valueLabel.attributedText = attributedValue }
-    }
-    
-    @objc dynamic var backgroundCornerRadius = Defaults.Background.cornerRadius {
-        didSet { backgroundLayer.cornerRadius = backgroundCornerRadius }
-    }
-    
-    @objc dynamic var backgroundTopPadding = Defaults.Background.topPadding {
-        didSet { layoutBackgroundLayer() }
-    }
-    
-    @objc dynamic var barColor = Defaults.Bar.color {
-        didSet { barView.set(barColor: barColor) }
-    }
-
-    @objc dynamic var title = Defaults.Title.text {
-        didSet { titleLabel.text = title }
-    }
-    
     @objc dynamic var titleFont = Defaults.Title.font {
         didSet { titleLabel.font = titleFont }
-    }
-    
-    @objc dynamic var value = Defaults.Value.text {
-        didSet { valueLabel.text = value }
     }
     
     @objc dynamic var valueFont = Defaults.Value.font {
         didSet { valueLabel.font = valueFont }
     }
     
-    @objc dynamic var valueOffset = Defaults.Value.offset {
-        didSet { valueCenterYConstraint.constant = valueOffset }
+    var attributedTitle = Defaults.Title.attributedText {
+        didSet { titleLabel.attributedText = attributedTitle }
     }
     
+    var attributedValue = Defaults.Value.attributedText {
+        didSet { valueLabel.attributedText = attributedValue }
+    }
+    
+    var backgroundTopPadding = Defaults.Background.topPadding {
+        didSet { layoutBackgroundLayer() }
+    }
+    
+    var barColor = Defaults.Bar.color {
+        didSet { barView.set(barColor: barColor) }
+    }
+
+    var valueOffset = Defaults.Value.offset {
+        didSet { valueCenterYConstraint.constant = valueOffset }
+    }
+
     // MARK: - Layout
     
     override func layoutSubviews() {
