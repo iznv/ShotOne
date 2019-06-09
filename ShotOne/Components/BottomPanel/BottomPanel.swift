@@ -54,7 +54,11 @@ class BottomPanel: NSObject {
     
     // MARK: - Properties
     
-    private var parentViewController: UIViewController?
+    var cornerRadius: CGFloat = 0 {
+        didSet {
+            contentView.layer.cornerRadius = cornerRadius
+        }
+    }
     
     private let contentViewController: UIViewController
     
@@ -62,15 +66,15 @@ class BottomPanel: NSObject {
     
     private let positions: [CGFloat]
     
+    private lazy var maxPosition = positions.max() ?? 0
+    
+    private lazy var minPosition = positions.min() ?? 0
+    
+    private var parentViewController: UIViewController?
+    
     private var isOutside = false
 
     private var shouldDelegate = false
-    
-    var cornerRadius: CGFloat = 0 {
-        didSet {
-            contentView.layer.cornerRadius = cornerRadius
-        }
-    }
     
     // MARK: - Init
     
@@ -103,7 +107,7 @@ extension BottomPanel {
     }
     
     private var isMaxPosition: Bool {
-        return currentPosition == positions.max()
+        return currentPosition == maxPosition
     }
 
 }
@@ -196,8 +200,6 @@ private extension BottomPanel {
     
     func onPanChanged(_ recognizer: UIPanGestureRecognizer) {
         guard let parentViewController = parentViewController else { return }
-        guard let maxPosition = positions.max() else { return }
-        guard let minPosition = positions.min() else { return }
         
         let min = parentViewController.view.frame.maxY - maxPosition
         let max = parentViewController.view.frame.maxY - minPosition
