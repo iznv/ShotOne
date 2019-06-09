@@ -12,6 +12,7 @@
 		2C0B956A224DEC8F00792ADF /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B9569224DEC8F00792ADF /* UIView+Constraints.swift */; };
 		2C0B956C224DECA600792ADF /* String+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B956B224DECA600792ADF /* String+Constants.swift */; };
 		2C0B956E224DEDBB00792ADF /* CALayer+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B956D224DEDBB00792ADF /* CALayer+Shadow.swift */; };
+		2C1C9D0B22AD902A00E3385B /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1C9D0A22AD902A00E3385B /* UIScrollView+Extensions.swift */; };
 		2C2DC2C2229EFE2300E7AB3F /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2DC2C1229EFE2300E7AB3F /* WalletView.swift */; };
 		2C37E88F229C5E1200F7380F /* NSLayoutConstraint+Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37E88E229C5E1200F7380F /* NSLayoutConstraint+Priority.swift */; };
 		2C37E891229C5F8E00F7380F /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37E890229C5F8E00F7380F /* TransactionsViewModel.swift */; };
@@ -76,6 +77,7 @@
 		2C0B9569224DEC8F00792ADF /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		2C0B956B224DECA600792ADF /* String+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Constants.swift"; sourceTree = "<group>"; };
 		2C0B956D224DEDBB00792ADF /* CALayer+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Shadow.swift"; sourceTree = "<group>"; };
+		2C1C9D0A22AD902A00E3385B /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
 		2C2DC2C1229EFE2300E7AB3F /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		2C37E88E229C5E1200F7380F /* NSLayoutConstraint+Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Priority.swift"; sourceTree = "<group>"; };
 		2C37E890229C5F8E00F7380F /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
@@ -192,6 +194,14 @@
 				2C0B9569224DEC8F00792ADF /* UIView+Constraints.swift */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		2C1C9D0922AD900A00E3385B /* UIScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				2C1C9D0A22AD902A00E3385B /* UIScrollView+Extensions.swift */,
+			);
+			path = UIScrollView;
 			sourceTree = "<group>";
 		};
 		2C37E88D229C5DFC00F7380F /* NSLayoutConstraint */ = {
@@ -565,6 +575,7 @@
 				2C897B7922495A15004523E3 /* UIColor */,
 				2C557CA922513EE600525361 /* UIFont */,
 				2CD12A51229AB31200C3C3A3 /* UIPanGestureRecognizer */,
+				2C1C9D0922AD900A00E3385B /* UIScrollView */,
 				2C0B9568224DEC8300792ADF /* UIView */,
 			);
 			path = UIKit;
@@ -798,6 +809,7 @@
 				2CDDAE53226F8592008EB265 /* BottomPanel.swift in Sources */,
 				2CEA5D5F22AC4D9D0076D10E /* DarkTheme.swift in Sources */,
 				2C897B772249550D004523E3 /* CALayer+AddSublayers.swift in Sources */,
+				2C1C9D0B22AD902A00E3385B /* UIScrollView+Extensions.swift in Sources */,
 				2C557CA822513E8000525361 /* UIView+AddSubviews.swift in Sources */,
 				2C49D0B0229AF2D000685B4D /* SectionHeaderCellViewModel.swift in Sources */,
 				2C0B9567224DEC2100792ADF /* NSMutableAttributedString+Attributes.swift in Sources */,

@@ -101,6 +101,10 @@ extension BottomPanel {
         guard let parentViewController = parentViewController else { return 0 }
         return parentViewController.view.frame.maxY - contentView.frame.origin.y
     }
+    
+    private var isMaxPosition: Bool {
+        return currentPosition == positions.max()
+    }
 
 }
 
@@ -134,6 +138,27 @@ extension BottomPanel {
         change(position: lastPosition)
     }
 
+}
+
+// MARK: - UIGestureRecognizerDelegate
+
+extension BottomPanel: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        guard let scrollView = scrollView else { return false }
+        guard let gestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer else { return false }
+        
+        let isZeroContentOffset = scrollView.contentOffset.y == 0
+        let isDownDirection = gestureRecognizer.direction(in: contentView) == .down
+        
+        let isScrollDisabled = (isMaxPosition && isZeroContentOffset && isDownDirection) || !isMaxPosition
+        scrollView.isScrollEnabled = !isScrollDisabled
+        
+        return false
+    }
+    
 }
 
 // MARK: - Gestures
@@ -225,6 +250,8 @@ private extension BottomPanel {
                        options: Constants.Animation.options,
                        animations: { [weak self] in
             self?.change(position: position)
+        }, completion: { [weak self] _ in
+            self?.scrollToTopIfNeeded()
         })
     }
     
@@ -238,6 +265,8 @@ private extension BottomPanel {
                        options: Constants.Animation.options,
                        animations: { [weak self] in
             self?.change(position: position)
+        }, completion: { [weak self] _ in
+            self?.scrollToTopIfNeeded()
         })
     }
     
@@ -305,26 +334,11 @@ private extension BottomPanel {
         return []
     }
     
-}
-
-extension BottomPanel: UIGestureRecognizerDelegate {
-
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
-                           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        
-        guard let scrollView = scrollView else { return false }
-        guard let gestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer else { return false }
-
-        let isMaxPosition = currentPosition == positions.max()
-        let isZeroContentOffset = scrollView.contentOffset.y == 0
-        let isDownDirection = gestureRecognizer.direction(in: contentView) == .down
-        
-        let isScrollDisabled = (isMaxPosition && isZeroContentOffset && isDownDirection) || !isMaxPosition
-        scrollView.isScrollEnabled = !isScrollDisabled
-        
-        return false
+    func scrollToTopIfNeeded() {
+        guard !isMaxPosition else { return }
+        scrollView?.scrollToTop()
     }
-
+    
 }
 
 private extension Array where Element == CGFloat {
