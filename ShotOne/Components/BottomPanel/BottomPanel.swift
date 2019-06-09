@@ -28,7 +28,7 @@ private enum Constants {
             .allowUserInteraction
         ]
         
-        static let initialSpringVelocity: CGFloat = 0.8
+        static let initialSpringVelocity: CGFloat = 0
         
         static let springDamping: CGFloat = 0.75
         
