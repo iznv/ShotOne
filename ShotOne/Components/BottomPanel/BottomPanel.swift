@@ -154,7 +154,7 @@ extension BottomPanel: UIGestureRecognizerDelegate {
         let isDownDirection = gestureRecognizer.direction(in: contentView) == .down
         
         let isScrollDisabled = (isMaxPosition && isZeroContentOffset && isDownDirection) || !isMaxPosition
-        scrollView.isScrollEnabled = !isScrollDisabled
+        setScroll(isEnabled: !isScrollDisabled)
         
         return false
     }
@@ -288,7 +288,7 @@ private extension BottomPanel {
     func change(position: CGFloat) {
         guard let parentViewController = parentViewController else { return }
         change(y: parentViewController.view.frame.maxY - position)
-        scrollView?.isScrollEnabled = true
+        setScroll(isEnabled: true)
     }
     
     func change(y: CGFloat) {
@@ -337,6 +337,12 @@ private extension BottomPanel {
     func scrollToTopIfNeeded() {
         guard !isMaxPosition else { return }
         scrollView?.scrollToTop()
+    }
+    
+    func setScroll(isEnabled: Bool) {
+        guard let scrollView = scrollView else { return }
+        scrollView.isScrollEnabled = isEnabled
+        scrollView.showsVerticalScrollIndicator = isEnabled
     }
     
 }
