@@ -52,6 +52,10 @@ class BottomPanel: NSObject {
     
     private var topConstraint: NSLayoutConstraint?
     
+    // MARK: - Delegate
+    
+    weak var delegate: BottomPanelDelegate?
+    
     // MARK: - Properties
     
     var cornerRadius: CGFloat = 0 {
@@ -297,6 +301,8 @@ private extension BottomPanel {
         topConstraint?.constant = y
         parentViewController?.view.layoutIfNeeded()
         adjustCornerRadius()
+        
+        delegate?.didChange(state: currentPosition, isMaxPosition: isMaxPosition)
     }
     
     func adjustCornerRadius() {

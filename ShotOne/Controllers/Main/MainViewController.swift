@@ -140,6 +140,8 @@ class MainViewController: UIViewController {
         return transactionsHeaderHeight + CGFloat(cells) * transactionCellHeight
     }()
 
+    private var isBottomPanelInMaxPosition = false
+
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -158,7 +160,9 @@ class MainViewController: UIViewController {
     // MARK: - Overrides
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return isBottomPanelInMaxPosition
+            ? ThemeManager.theme.mainStatusBarWithOpenBottomPanelStyle
+            : ThemeManager.theme.mainStatusBarWithClosedBottomPanelStyle
     }
     
 }
@@ -172,6 +176,17 @@ extension MainViewController: Themeable {
         backgroundImageView.alpha = theme.mainBackgroundImageAlpha
         cryptoWalletView.backgroundImage = theme.cryptoWalletBackgroundImage
         dollarsWalletView.backgroundImage = theme.dollarsWalletBackgroundImage
+    }
+    
+}
+
+// MARK: - BottomPanelDelegate
+
+extension MainViewController: BottomPanelDelegate {
+    
+    func didChange(state: CGFloat, isMaxPosition: Bool) {
+        isBottomPanelInMaxPosition = isMaxPosition
+        setNeedsStatusBarAppearanceUpdate()
     }
     
 }
@@ -278,6 +293,7 @@ private extension MainViewController {
 
     func addBottomSheet() {
         transactionsPanel.embed(in: self)
+        transactionsPanel.delegate = self
     }
     
 }

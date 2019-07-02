@@ -24,7 +24,9 @@ extension Theme {
         mainBackgroundImageAlpha: 1,
         walletLargeValueAlpha: 0,
         shouldShowPathIconShadow: true,
-        currencyViewLayerShadowOpacity: 0
+        currencyViewLayerShadowOpacity: 0,
+        mainStatusBarWithOpenBottomPanelStyle: .lightContent,
+        mainStatusBarWithClosedBottomPanelStyle: .lightContent
     )
     
 }

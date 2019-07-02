@@ -46,4 +46,8 @@ struct Theme {
     
     var currencyViewLayerShadowOpacity: Float
     
+    var mainStatusBarWithOpenBottomPanelStyle: UIStatusBarStyle
+
+    var mainStatusBarWithClosedBottomPanelStyle: UIStatusBarStyle
+    
 }
