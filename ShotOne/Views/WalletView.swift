@@ -42,6 +42,7 @@ class WalletView: BaseView {
         let view = UIImageView()
         
         view.contentMode = .scaleAspectFill
+        view.layer.cornerRadius = Constants.cornerRadius
         
         return view
     }()
@@ -105,18 +106,6 @@ class WalletView: BaseView {
         addViews()
         configureConstraints()
         configureAppearance()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        let path = UIBezierPath(roundedRect: bounds,
-                                byRoundingCorners: [.allCorners],
-                                cornerRadii: CGSize(width: Constants.cornerRadius, height: Constants.cornerRadius))
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        
-        backgroundImageView.layer.mask = mask
     }
     
 }

@@ -20,6 +20,9 @@ extension CALayer {
         shadowRadius = radius
         shadowOpacity = opacity
         shadowOffset = CGSize(width: dx, height: dy)
+        
+        shouldRasterize = true
+        rasterizationScale = UIScreen.main.nativeScale
     }
     
 }

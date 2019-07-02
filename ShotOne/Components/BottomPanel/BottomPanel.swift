@@ -337,6 +337,8 @@ private extension BottomPanel {
     }
     
     func scrollToTopIfNeeded() {
+        setScroll(isEnabled: isMaxPosition)
+        
         guard !isMaxPosition else { return }
         scrollView?.scrollToTop()
     }
