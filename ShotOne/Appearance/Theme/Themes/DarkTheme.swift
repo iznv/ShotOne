@@ -23,7 +23,8 @@ extension Theme {
         currencyBackgroundColors: [.currencyBackgroundStartDark, .currencyBackgroundEndDark],
         mainBackgroundImageAlpha: 1,
         walletLargeValueAlpha: 0,
-        shouldShowPathIconShadow: true
+        shouldShowPathIconShadow: true,
+        currencyViewLayerShadowOpacity: 0
     )
     
 }

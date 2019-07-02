@@ -44,4 +44,6 @@ struct Theme {
     
     var shouldShowPathIconShadow: Bool
     
+    var currencyViewLayerShadowOpacity: Float
+    
 }

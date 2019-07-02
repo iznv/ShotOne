@@ -81,8 +81,7 @@ class PathIconView: BaseView {
         } else {
             pathLayer.shadowOpacity = 0
         }
-        
-        
+
         guard let box = pathLayer.path?.boundingBox else { return }
         
         pathLayer.position = CGPoint(x: rect.midX - box.width / 2,

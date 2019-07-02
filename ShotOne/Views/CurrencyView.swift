@@ -12,6 +12,19 @@ import UIKit
 
 private struct Constants {
     
+    struct Background {
+        
+        struct Shadow {
+            
+            static let radius: CGFloat = 30
+            
+            static let dx: CGFloat = 15
+            
+            static let dy: CGFloat = 20
+            
+        }
+    }
+    
     struct Bar {
         
         struct Shadow {
@@ -103,7 +116,6 @@ class CurrencyView: BaseView {
 
         layer.contentsScale = UIScreen.main.nativeScale
         layer.cornerRadius = Defaults.Background.cornerRadius
-        layer.addShadow(radius: 30, opacity: 0.1, dx: 15, dy: 20)
         
         layer.layout(topPadding: Defaults.Background.topPadding, relativeTo: self)
         
@@ -201,6 +213,11 @@ extension CurrencyView: Themeable {
         backgroundLayer.set(colors: theme.currencyBackgroundColors)
         valueLabel.textColor = theme.primaryTextColor
         titleLabel.textColor = theme.secondaryTextColor
+        
+        layer.addShadow(radius: Constants.Background.Shadow.radius,
+                        opacity: theme.currencyViewLayerShadowOpacity,
+                        dx: Constants.Background.Shadow.dx,
+                        dy: Constants.Background.Shadow.dy)
     }
     
 }
