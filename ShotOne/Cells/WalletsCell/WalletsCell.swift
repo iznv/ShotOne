@@ -69,10 +69,10 @@ extension WalletsCell: ConfigurableCell {
     
     func configure(with viewModel: WalletsCellViewModel) {
         cryptoView.attributedTitle = viewModel.cryptoWallet.title.with(.kern, value: Constants.titleKern)
-        cryptoView.attributedValue = viewModel.cryptoWallet.delta.with(.kern, value: Constants.valueKern)
+        cryptoView.attributedValue = Formatter.format(viewModel.cryptoWallet.delta, using: .delta)?.with(.kern, value: Constants.valueKern)
         
         dollarsView.attributedTitle = viewModel.dollarsWallet.title.with(.kern, value: Constants.titleKern)
-        dollarsView.attributedValue = viewModel.dollarsWallet.delta.with(.kern, value: Constants.valueKern)
+        dollarsView.attributedValue = Formatter.format(viewModel.dollarsWallet.delta, using: .delta)?.with(.kern, value: Constants.valueKern)
     }
     
 }

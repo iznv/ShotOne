@@ -170,7 +170,7 @@ class CurrencyView: BaseView {
         didSet { titleLabel.attributedText = attributedTitle }
     }
     
-    var attributedValue = Defaults.Value.attributedText {
+    var attributedValue: NSAttributedString? = Defaults.Value.attributedText {
         didSet { valueLabel.attributedText = attributedValue }
     }
     

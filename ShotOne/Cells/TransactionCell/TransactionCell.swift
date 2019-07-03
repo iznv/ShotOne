@@ -24,6 +24,14 @@ class TransactionCell: UITableViewCell {
             
         }
         
+        enum Kern {
+            
+            static let priceCategory: CGFloat = 0.65
+            
+            static let place: CGFloat = 0.18
+            
+        }
+        
         static let categoryLabelLeading: CGFloat = 79
         
         static let placeLabelTop: CGFloat = 8
@@ -85,9 +93,9 @@ extension TransactionCell: ConfigurableCell {
     static let defaultHeight: CGFloat? = 78
     
     func configure(with viewModel: TransactionCellViewModel) {
-        categoryLabel.attributedText = viewModel.category.with(.kern, value: 0.65)
-        placeLabel.attributedText = viewModel.place.with(.kern, value: 0.18)
-        priceLabel.attributedText = viewModel.price.with(.kern, value: 0.65)
+        categoryLabel.attributedText = viewModel.category.with(.kern, value: Constants.Kern.priceCategory)
+        placeLabel.attributedText = viewModel.place.with(.kern, value: Constants.Kern.place)
+        priceLabel.attributedText = Formatter.format(viewModel.price, using: .sum)?.with(.kern, value: Constants.Kern.priceCategory)
         
         configurePathIconView(with: viewModel)
     }

@@ -6,9 +6,9 @@
 //  Copyright © 2019 Ivan Zinovyev. All rights reserved.
 //
 
-struct Localization {
+enum Localization {
     
-    struct Global {
+    enum Global {
         
         static let crypto = "global.crypto".localized
         
@@ -16,9 +16,9 @@ struct Localization {
         
     }
     
-    struct Transactions {
+    enum Transactions {
         
-        struct Category {
+        enum Category {
             
             static let grocery = "transactions.category.grocery".localized
             
@@ -34,7 +34,7 @@ struct Localization {
         
     }
  
-    struct Main {
+    enum Main {
 
         static let balance = "main.balance".localized
         

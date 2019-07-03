@@ -40,6 +40,16 @@ class MainViewController: UIViewController {
         
         static let userName = "Veronica"
         
+        struct Balance {
+            
+            static let total: Double = 162
+            
+            static let crypto: Double = 22
+            
+            static let dollars: Double = 135
+            
+        }
+        
     }
     
     // MARK: - Layers
@@ -75,7 +85,7 @@ class MainViewController: UIViewController {
         let view = BalanceView()
         
         view.title = Localization.Main.balance
-        view.value = "$162.00"
+        view.value = Formatter.format(Mocks.Balance.total, using: .sum)
         
         return view
     }()
@@ -85,7 +95,7 @@ class MainViewController: UIViewController {
     private let cryptoWalletView: WalletView = {
         let view = WalletView()
 
-        view.value = "$22.00"
+        view.value = Formatter.format(Mocks.Balance.crypto, using: .sum)
         view.title = Localization.Global.crypto
         
         return view
@@ -94,7 +104,7 @@ class MainViewController: UIViewController {
     private let dollarsWalletView: WalletView = {
         let view = WalletView()
 
-        view.value = "$135.00"
+        view.value = Formatter.format(Mocks.Balance.dollars, using: .sum)
         view.title = Localization.Global.dollars
         
         return view

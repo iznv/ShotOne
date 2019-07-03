@@ -29,29 +29,29 @@ class TransactionsViewModel {
     let transactionViewModels = [
         TransactionCellViewModel(category: Localization.Transactions.Category.grocery,
                                  place: Mocks.treasureIslandMall,
-                                 price: "$12.00",
+                                 price: 12,
                                  pathColor: .groceryIcon,
                                  pathMaker: CGPath.circlePath),
         TransactionCellViewModel(category: Localization.Transactions.Category.petrol,
                                  place: Mocks.essarPetrolPump,
-                                 price: "$09.00",
+                                 price: 9,
                                  pathColor: .petrolIcon,
                                  pathMaker: CGPath.trianglePath),
         TransactionCellViewModel(category: Localization.Transactions.Category.wardrobe,
                                  place: Mocks.jackAndJones,
-                                 price: "$63.00",
+                                 price: 63,
                                  pathColor: .wardrobeIcon,
                                  pathMaker: CGPath.rectanglePath),
         TransactionCellViewModel(category: Localization.Transactions.Category.hardware,
                                  place: Mocks.mitasShop,
-                                 price: "$14.00",
+                                 price: 14,
                                  pathColor: .hardwareIcon,
                                  pathMaker: CGPath.dropPath)
     ]
     
     let sectionHeaderViewModel = SectionHeaderCellViewModel(title: Localization.Transactions.recent)
     
-    let walletsViewModel = WalletsCellViewModel(cryptoWallet: Wallet(title: Localization.Global.crypto, delta: "+19.06"),
-                                                dollarsWallet: Wallet(title: Localization.Global.dollars, delta: "-02.24"))
+    let walletsViewModel = WalletsCellViewModel(cryptoWallet: Wallet(title: Localization.Global.crypto, delta: 19.06),
+                                                dollarsWallet: Wallet(title: Localization.Global.dollars, delta: -02.24))
     
 }

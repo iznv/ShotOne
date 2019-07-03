@@ -14,7 +14,7 @@ struct TransactionCellViewModel {
     
     let place: String
     
-    let price: String
+    let price: Double
     
     let pathColor: UIColor
     

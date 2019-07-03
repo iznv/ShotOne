@@ -57,9 +57,9 @@ class BalanceView: BaseView {
         }
     }
     
-    var value: String = .empty {
+    var value: String? = .empty {
         didSet {
-            valueLabel.attributedText = value.with(.kern, value: Constants.Kern.value)
+            valueLabel.attributedText = value?.with(.kern, value: Constants.Kern.value)
         }
     }
     

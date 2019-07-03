@@ -10,6 +10,6 @@ struct Wallet {
     
     let title: String
     
-    let delta: String
+    let delta: Double
     
 }

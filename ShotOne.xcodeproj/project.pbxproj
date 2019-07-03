@@ -30,6 +30,10 @@
 		2C3CCB0A224AAD6A00FF2D1A /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3CCB06224AAD6A00FF2D1A /* Quicksand-Regular.ttf */; };
 		2C3CCB0B224AAD6A00FF2D1A /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3CCB07224AAD6A00FF2D1A /* Quicksand-Light.ttf */; };
 		2C42D51722CD340500A2651E /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42D51622CD340500A2651E /* String+Localizable.swift */; };
+		2C42D51A22CD3B3F00A2651E /* NumberFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42D51922CD3B3F00A2651E /* NumberFormatter+Extensions.swift */; };
+		2C42D51D22CD3C4000A2651E /* Locale+Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42D51C22CD3C4000A2651E /* Locale+Locales.swift */; };
+		2C42D51F22CD444200A2651E /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42D51E22CD444200A2651E /* Formatter.swift */; };
+		2C42D52122CD445600A2651E /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42D52022CD445600A2651E /* Number.swift */; };
 		2C49D0AA229ACE3100685B4D /* UIApplication+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49D0A9229ACE3100685B4D /* UIApplication+SafeArea.swift */; };
 		2C49D0AE229AF2C800685B4D /* SectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49D0AD229AF2C800685B4D /* SectionHeaderCell.swift */; };
 		2C49D0B0229AF2D000685B4D /* SectionHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49D0AF229AF2D000685B4D /* SectionHeaderCellViewModel.swift */; };
@@ -99,6 +103,10 @@
 		2C3CCB06224AAD6A00FF2D1A /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
 		2C3CCB07224AAD6A00FF2D1A /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.ttf"; sourceTree = "<group>"; };
 		2C42D51622CD340500A2651E /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
+		2C42D51922CD3B3F00A2651E /* NumberFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Extensions.swift"; sourceTree = "<group>"; };
+		2C42D51C22CD3C4000A2651E /* Locale+Locales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+Locales.swift"; sourceTree = "<group>"; };
+		2C42D51E22CD444200A2651E /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		2C42D52022CD445600A2651E /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		2C49D0A9229ACE3100685B4D /* UIApplication+SafeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+SafeArea.swift"; sourceTree = "<group>"; };
 		2C49D0AD229AF2C800685B4D /* SectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCell.swift; sourceTree = "<group>"; };
 		2C49D0AF229AF2D000685B4D /* SectionHeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCellViewModel.swift; sourceTree = "<group>"; };
@@ -181,8 +189,9 @@
 		2C0B9564224DEC0600792ADF /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				2C7BB23B22A43EA50085E427 /* NSNotification */,
+				2C42D51B22CD3C3400A2651E /* Locale */,
 				2C0B9565224DEC1200792ADF /* NSMutableAttributedString */,
+				2C7BB23B22A43EA50085E427 /* NSNotification */,
 				2C7BB23822A43E0C0085E427 /* UserDefaults */,
 			);
 			path = Foundation;
@@ -281,6 +290,32 @@
 				2C3CCB06224AAD6A00FF2D1A /* Quicksand-Regular.ttf */,
 			);
 			path = Quicksand;
+			sourceTree = "<group>";
+		};
+		2C42D51822CD3B2B00A2651E /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				2C42D52222CD447200A2651E /* Number */,
+			);
+			path = Formatters;
+			sourceTree = "<group>";
+		};
+		2C42D51B22CD3C3400A2651E /* Locale */ = {
+			isa = PBXGroup;
+			children = (
+				2C42D51C22CD3C4000A2651E /* Locale+Locales.swift */,
+			);
+			path = Locale;
+			sourceTree = "<group>";
+		};
+		2C42D52222CD447200A2651E /* Number */ = {
+			isa = PBXGroup;
+			children = (
+				2C42D51E22CD444200A2651E /* Formatter.swift */,
+				2C42D52022CD445600A2651E /* Number.swift */,
+				2C42D51922CD3B3F00A2651E /* NumberFormatter+Extensions.swift */,
+			);
+			path = Number;
 			sourceTree = "<group>";
 		};
 		2C49D0A8229ACE1C00685B4D /* UIApplication */ = {
@@ -486,6 +521,7 @@
 				2CDDAE51226F8578008EB265 /* Components */,
 				2C897B62224943A2004523E3 /* Controllers */,
 				2C897B6F2249533E004523E3 /* Extensions */,
+				2C42D51822CD3B2B00A2651E /* Formatters */,
 				2C49D0BD229B00C200685B4D /* Models */,
 				2C897B612249436C004523E3 /* Resources */,
 				2C897B69224946B4004523E3 /* Views */,
@@ -814,6 +850,7 @@
 				2C66EC2322A2ED2E00B85071 /* PathIconView.swift in Sources */,
 				2C49D0B8229AFFC400685B4D /* WalletsCell.swift in Sources */,
 				2C49D0AA229ACE3100685B4D /* UIApplication+SafeArea.swift in Sources */,
+				2C42D52122CD445600A2651E /* Number.swift in Sources */,
 				2C557CB8225152DC00525361 /* BoundsHolder.swift in Sources */,
 				2CEA5D5422AC353E0076D10E /* UIColor+Colors.swift in Sources */,
 				2C37E8A1229C6CBC00F7380F /* BalanceView.swift in Sources */,
@@ -825,6 +862,7 @@
 				2C72099F22776EA800EF0ED4 /* CGFloat+Sign.swift in Sources */,
 				2C49D0AE229AF2C800685B4D /* SectionHeaderCell.swift in Sources */,
 				2C557CAC22513EFA00525361 /* UIFont+CustomFont.swift in Sources */,
+				2C42D51D22CD3C4000A2651E /* Locale+Locales.swift in Sources */,
 				2C7BB23522A43D8A0085E427 /* ThemeManager.swift in Sources */,
 				2C0B956E224DEDBB00792ADF /* CALayer+Shadow.swift in Sources */,
 				2CDDAE53226F8592008EB265 /* BottomPanel.swift in Sources */,
@@ -838,6 +876,7 @@
 				2C37E89D229C619600F7380F /* EmptyRow.swift in Sources */,
 				2C37E89F229C646F00F7380F /* UserView.swift in Sources */,
 				2C7BB23322A43D440085E427 /* Themeable.swift in Sources */,
+				2C42D51F22CD444200A2651E /* Formatter.swift in Sources */,
 				2C42D51722CD340500A2651E /* String+Localizable.swift in Sources */,
 				2C0B956A224DEC8F00792ADF /* UIView+Constraints.swift in Sources */,
 				2C37E891229C5F8E00F7380F /* TransactionsViewModel.swift in Sources */,
@@ -845,6 +884,7 @@
 				2C557CB52251523600525361 /* CALayer+Layout.swift in Sources */,
 				2C897B65224943CD004523E3 /* MainViewController.swift in Sources */,
 				2C557CAF22513F3000525361 /* UIFontWeight+Title.swift in Sources */,
+				2C42D51A22CD3B3F00A2651E /* NumberFormatter+Extensions.swift in Sources */,
 				2C2B5F8222CBF4A9006D35EB /* String+Localization.swift in Sources */,
 				2C97A1A822889DEA00FF3393 /* GradientView.swift in Sources */,
 				2C49D0B3229AF96A00685B4D /* TransactionCell.swift in Sources */,
