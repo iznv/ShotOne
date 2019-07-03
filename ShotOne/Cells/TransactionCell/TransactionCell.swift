@@ -93,9 +93,9 @@ extension TransactionCell: ConfigurableCell {
     static let defaultHeight: CGFloat? = 78
     
     func configure(with viewModel: TransactionCellViewModel) {
-        categoryLabel.attributedText = viewModel.category.with(.kern, value: Constants.Kern.priceCategory)
-        placeLabel.attributedText = viewModel.place.with(.kern, value: Constants.Kern.place)
-        priceLabel.attributedText = Formatter.format(viewModel.price, using: .sum)?.with(.kern, value: Constants.Kern.priceCategory)
+        categoryLabel.attributedText = viewModel.category
+        placeLabel.attributedText = viewModel.place
+        priceLabel.attributedText = viewModel.price
         
         configurePathIconView(with: viewModel)
     }

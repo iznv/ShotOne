@@ -16,8 +16,6 @@ class SectionHeaderCell: UITableViewCell {
         
         static let sideMargin: CGFloat = 30
         
-        static let titleKern: CGFloat = 0.2
-        
     }
     
     // MARK: - Views
@@ -55,7 +53,7 @@ extension SectionHeaderCell: ConfigurableCell {
     static let defaultHeight: CGFloat? = 34
     
     func configure(with viewModel: SectionHeaderCellViewModel) {
-        titleLabel.attributedText = viewModel.title.with(.kern, value: Constants.titleKern)
+        titleLabel.attributedText = viewModel.title
     }
     
 }

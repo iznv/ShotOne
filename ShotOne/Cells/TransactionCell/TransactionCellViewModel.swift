@@ -10,14 +10,46 @@ import UIKit
 
 struct TransactionCellViewModel {
     
-    let category: String
+    // MARK: - Constants
     
-    let place: String
+    private enum Constants {
+        
+        enum Kern {
+            
+            static let priceCategory: CGFloat = 0.65
+            
+            static let place: CGFloat = 0.18
+            
+        }
+        
+    }
     
-    let price: Double
+    // MARK: - Properties
+    
+    let category: NSAttributedString
+    
+    let place: NSAttributedString
+    
+    let price: NSAttributedString?
     
     let pathColor: UIColor
     
     let pathMaker: (CGRect) -> CGPath
+    
+    // MARK: - Init
+    
+    init(category: String,
+         place: String,
+         price: Double,
+         pathColor: UIColor,
+         pathMaker: @escaping (CGRect) -> CGPath) {
+        
+        self.pathColor = pathColor
+        self.pathMaker = pathMaker
+        
+        self.category = category.with(.kern, value: Constants.Kern.priceCategory)
+        self.place = place.with(.kern, value: Constants.Kern.place)
+        self.price = Formatter.format(price, using: .sum)?.with(.kern, value: Constants.Kern.priceCategory)
+    }
     
 }

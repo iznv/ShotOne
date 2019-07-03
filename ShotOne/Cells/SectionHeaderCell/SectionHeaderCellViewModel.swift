@@ -6,8 +6,26 @@
 //  Copyright © 2019 Ivan Zinovyev. All rights reserved.
 //
 
+import UIKit
+
 struct SectionHeaderCellViewModel {
     
-    let title: String
+    // MARK: - Constants
+    
+    private enum Constants {
+        
+        static let titleKern: CGFloat = 0.2
+        
+    }
+    
+    // MARK: - Properties
+    
+    let title: NSAttributedString
+    
+    // MARK: - Init
+    
+    init(title: String) {
+        self.title = title.with(.kern, value: Constants.titleKern)
+    }
     
 }

@@ -20,10 +20,6 @@ class WalletsCell: UITableViewCell {
         
         static let ratio: CGFloat = 1.72
         
-        static let titleKern: CGFloat = 0.6
-        
-        static let valueKern: CGFloat = 1
-        
     }
     
     // MARK: - Views
@@ -68,11 +64,11 @@ extension WalletsCell: ConfigurableCell {
     }
     
     func configure(with viewModel: WalletsCellViewModel) {
-        cryptoView.attributedTitle = viewModel.cryptoWallet.title.with(.kern, value: Constants.titleKern)
-        cryptoView.attributedValue = Formatter.format(viewModel.cryptoWallet.delta, using: .delta)?.with(.kern, value: Constants.valueKern)
+        cryptoView.attributedTitle = viewModel.cryptoWalletTitle
+        cryptoView.attributedValue = viewModel.cryptoWalletValue
         
-        dollarsView.attributedTitle = viewModel.dollarsWallet.title.with(.kern, value: Constants.titleKern)
-        dollarsView.attributedValue = Formatter.format(viewModel.dollarsWallet.delta, using: .delta)?.with(.kern, value: Constants.valueKern)
+        dollarsView.attributedTitle = viewModel.dollarsWalletTitle
+        dollarsView.attributedValue = viewModel.dollarsWalletValue
     }
     
 }
