@@ -8,6 +8,8 @@
 
 struct WalletsCellViewModel {
     
-    let wallets: [Wallet]
+    let cryptoWallet: Wallet
+    
+    let dollarsWallet: Wallet
     
 }

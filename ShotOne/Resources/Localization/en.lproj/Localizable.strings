@@ -1,0 +1,12 @@
+"global.crypto" = "Crypto";
+"global.dollars" = "Dollars";
+
+"main.balance" = "Your total balance is";
+"main.hey:username" = "Hey, %@";
+
+"transactions.recent" = "Recent transactions";
+
+"transactions.category.grocery" = "Grocery";
+"transactions.category.petrol" = "Petrol";
+"transactions.category.wardrobe" = "Wardrobe";
+"transactions.category.hardware" = "Hardware";

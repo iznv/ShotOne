@@ -68,11 +68,11 @@ extension WalletsCell: ConfigurableCell {
     }
     
     func configure(with viewModel: WalletsCellViewModel) {
-        cryptoView.attributedTitle = "Crypto".with(.kern, value: Constants.titleKern)
-        cryptoView.attributedValue = "+19.06".with(.kern, value: Constants.valueKern)
+        cryptoView.attributedTitle = viewModel.cryptoWallet.title.with(.kern, value: Constants.titleKern)
+        cryptoView.attributedValue = viewModel.cryptoWallet.delta.with(.kern, value: Constants.valueKern)
         
-        dollarsView.attributedTitle = "Dollars".with(.kern, value: Constants.titleKern)
-        dollarsView.attributedValue = "-02.24".with(.kern, value: Constants.valueKern)
+        dollarsView.attributedTitle = viewModel.dollarsWallet.title.with(.kern, value: Constants.titleKern)
+        dollarsView.attributedValue = viewModel.dollarsWallet.delta.with(.kern, value: Constants.valueKern)
     }
     
 }

@@ -14,6 +14,8 @@
 		2C0B956E224DEDBB00792ADF /* CALayer+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B956D224DEDBB00792ADF /* CALayer+Shadow.swift */; };
 		2C1C9D0B22AD902A00E3385B /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1C9D0A22AD902A00E3385B /* UIScrollView+Extensions.swift */; };
 		2C2B5F7A22CBF0C9006D35EB /* BottomPanelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2B5F7922CBF0C9006D35EB /* BottomPanelDelegate.swift */; };
+		2C2B5F7E22CBF379006D35EB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C2B5F8022CBF379006D35EB /* Localizable.strings */; };
+		2C2B5F8222CBF4A9006D35EB /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2B5F8122CBF4A9006D35EB /* String+Localization.swift */; };
 		2C2DC2C2229EFE2300E7AB3F /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2DC2C1229EFE2300E7AB3F /* WalletView.swift */; };
 		2C37E88F229C5E1200F7380F /* NSLayoutConstraint+Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37E88E229C5E1200F7380F /* NSLayoutConstraint+Priority.swift */; };
 		2C37E891229C5F8E00F7380F /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37E890229C5F8E00F7380F /* TransactionsViewModel.swift */; };
@@ -27,6 +29,7 @@
 		2C3CCB09224AAD6A00FF2D1A /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3CCB05224AAD6A00FF2D1A /* Quicksand-Medium.ttf */; };
 		2C3CCB0A224AAD6A00FF2D1A /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3CCB06224AAD6A00FF2D1A /* Quicksand-Regular.ttf */; };
 		2C3CCB0B224AAD6A00FF2D1A /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3CCB07224AAD6A00FF2D1A /* Quicksand-Light.ttf */; };
+		2C42D51722CD340500A2651E /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42D51622CD340500A2651E /* String+Localizable.swift */; };
 		2C49D0AA229ACE3100685B4D /* UIApplication+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49D0A9229ACE3100685B4D /* UIApplication+SafeArea.swift */; };
 		2C49D0AE229AF2C800685B4D /* SectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49D0AD229AF2C800685B4D /* SectionHeaderCell.swift */; };
 		2C49D0B0229AF2D000685B4D /* SectionHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49D0AF229AF2D000685B4D /* SectionHeaderCellViewModel.swift */; };
@@ -80,6 +83,8 @@
 		2C0B956D224DEDBB00792ADF /* CALayer+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Shadow.swift"; sourceTree = "<group>"; };
 		2C1C9D0A22AD902A00E3385B /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
 		2C2B5F7922CBF0C9006D35EB /* BottomPanelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPanelDelegate.swift; sourceTree = "<group>"; };
+		2C2B5F7F22CBF379006D35EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2C2B5F8122CBF4A9006D35EB /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		2C2DC2C1229EFE2300E7AB3F /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		2C37E88E229C5E1200F7380F /* NSLayoutConstraint+Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Priority.swift"; sourceTree = "<group>"; };
 		2C37E890229C5F8E00F7380F /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
@@ -93,6 +98,7 @@
 		2C3CCB05224AAD6A00FF2D1A /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		2C3CCB06224AAD6A00FF2D1A /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
 		2C3CCB07224AAD6A00FF2D1A /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.ttf"; sourceTree = "<group>"; };
+		2C42D51622CD340500A2651E /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
 		2C49D0A9229ACE3100685B4D /* UIApplication+SafeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+SafeArea.swift"; sourceTree = "<group>"; };
 		2C49D0AD229AF2C800685B4D /* SectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCell.swift; sourceTree = "<group>"; };
 		2C49D0AF229AF2D000685B4D /* SectionHeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCellViewModel.swift; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 			children = (
 				2C0B9562224DEBE500792ADF /* String+Attributes.swift */,
 				2C0B956B224DECA600792ADF /* String+Constants.swift */,
+				2C42D51622CD340500A2651E /* String+Localizable.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -204,6 +211,15 @@
 				2C1C9D0A22AD902A00E3385B /* UIScrollView+Extensions.swift */,
 			);
 			path = UIScrollView;
+			sourceTree = "<group>";
+		};
+		2C2B5F7B22CBF20A006D35EB /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				2C2B5F8022CBF379006D35EB /* Localizable.strings */,
+				2C2B5F8122CBF4A9006D35EB /* String+Localization.swift */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		2C37E88D229C5DFC00F7380F /* NSLayoutConstraint */ = {
@@ -481,9 +497,10 @@
 			isa = PBXGroup;
 			children = (
 				2C897B6722494547004523E3 /* LaunchScreen.storyboard */,
-				2C897B56224941E4004523E3 /* Images.xcassets */,
 				2CECB8E122ABF23F0074C165 /* Colors.xcassets */,
+				2C897B56224941E4004523E3 /* Images.xcassets */,
 				2C3CCB00224AAB6B00FF2D1A /* Fonts */,
+				2C2B5F7B22CBF20A006D35EB /* Localization */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -725,6 +742,7 @@
 				2C3CCB0B224AAD6A00FF2D1A /* Quicksand-Light.ttf in Resources */,
 				2C897B57224941E4004523E3 /* Images.xcassets in Resources */,
 				2C3CCB08224AAD6A00FF2D1A /* Quicksand-Bold.ttf in Resources */,
+				2C2B5F7E22CBF379006D35EB /* Localizable.strings in Resources */,
 				2C3CCB09224AAD6A00FF2D1A /* Quicksand-Medium.ttf in Resources */,
 				2CECB8E222ABF23F0074C165 /* Colors.xcassets in Resources */,
 			);
@@ -820,12 +838,14 @@
 				2C37E89D229C619600F7380F /* EmptyRow.swift in Sources */,
 				2C37E89F229C646F00F7380F /* UserView.swift in Sources */,
 				2C7BB23322A43D440085E427 /* Themeable.swift in Sources */,
+				2C42D51722CD340500A2651E /* String+Localizable.swift in Sources */,
 				2C0B956A224DEC8F00792ADF /* UIView+Constraints.swift in Sources */,
 				2C37E891229C5F8E00F7380F /* TransactionsViewModel.swift in Sources */,
 				2C2B5F7A22CBF0C9006D35EB /* BottomPanelDelegate.swift in Sources */,
 				2C557CB52251523600525361 /* CALayer+Layout.swift in Sources */,
 				2C897B65224943CD004523E3 /* MainViewController.swift in Sources */,
 				2C557CAF22513F3000525361 /* UIFontWeight+Title.swift in Sources */,
+				2C2B5F8222CBF4A9006D35EB /* String+Localization.swift in Sources */,
 				2C97A1A822889DEA00FF3393 /* GradientView.swift in Sources */,
 				2C49D0B3229AF96A00685B4D /* TransactionCell.swift in Sources */,
 				2C37E898229C612500F7380F /* TableSection+Init.swift in Sources */,
@@ -838,6 +858,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2C2B5F8022CBF379006D35EB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C2B5F7F22CBF379006D35EB /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2C897B5C224941E4004523E3 /* Debug */ = {

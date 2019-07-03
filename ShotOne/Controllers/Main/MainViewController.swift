@@ -36,6 +36,12 @@ class MainViewController: UIViewController {
         
     }
     
+    private enum Mocks {
+        
+        static let userName = "Veronica"
+        
+    }
+    
     // MARK: - Layers
     
     private lazy var gradientLayer: CAGradientLayer = {
@@ -59,7 +65,7 @@ class MainViewController: UIViewController {
     private let userView: UserView = {
         let view = UserView()
         
-        view.title = "Hey, Veronica"
+        view.title = Localization.Main.hey(userName: Mocks.userName)
         view.image = .userPicture
         
         return view
@@ -68,7 +74,7 @@ class MainViewController: UIViewController {
     private let balanceView: BalanceView = {
         let view = BalanceView()
         
-        view.title = "Your total balance is"
+        view.title = Localization.Main.balance
         view.value = "$162.00"
         
         return view
@@ -80,7 +86,7 @@ class MainViewController: UIViewController {
         let view = WalletView()
 
         view.value = "$22.00"
-        view.title = "Crypto"
+        view.title = Localization.Global.crypto
         
         return view
     }()
@@ -89,7 +95,7 @@ class MainViewController: UIViewController {
         let view = WalletView()
 
         view.value = "$135.00"
-        view.title = "Dollars"
+        view.title = Localization.Global.dollars
         
         return view
     }()
