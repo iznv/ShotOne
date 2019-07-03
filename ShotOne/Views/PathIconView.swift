@@ -62,7 +62,7 @@ class PathIconView: BaseView {
     
     // MARK: - Overrides
     
-    override func initialize() {
+    override func commonInit() {
         layer.addSublayer(pathLayer)
     }
     

@@ -8,7 +8,7 @@
 
 import TableKit
 
-class TransactionCell: UITableViewCell {
+class TransactionCell: BaseTableViewCell {
     
     // MARK: - Constants
     
@@ -70,18 +70,29 @@ class TransactionCell: UITableViewCell {
     
     // MARK: - Init
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+    override func commonInit() {
+        super.commonInit()
         enableTheme(for: self)
-        
-        addViews()
-        configureConstraints()
-        configureAppearance()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    // MARK: - Views
+    
+    override func addViews() {
+        contentView.addSubviews(
+            pathIconView,
+            categoryLabel,
+            placeLabel,
+            priceLabel
+        )
+    }
+    
+    // MARK: - Constraints
+    
+    override func configureConstraints() {
+        configurePathIconViewConstraints()
+        configureCategoryLabelConstraints()
+        configurePlaceLabelConstraints()
+        configurePriceLabelConstraints()
     }
     
 }
@@ -120,31 +131,9 @@ extension TransactionCell: Themeable {
     
 }
 
-// MARK: - Views
-
-private extension TransactionCell {
-    
-    func addViews() {
-        contentView.addSubviews(
-            pathIconView,
-            categoryLabel,
-            placeLabel,
-            priceLabel
-        )
-    }
-    
-}
-
 // MARK: - Constraints
 
 private extension TransactionCell {
-    
-    func configureConstraints() {
-        configurePathIconViewConstraints()
-        configureCategoryLabelConstraints()
-        configurePlaceLabelConstraints()
-        configurePriceLabelConstraints()
-    }
     
     func configurePathIconViewConstraints() {
         pathIconView.activate {[
@@ -174,17 +163,6 @@ private extension TransactionCell {
             $0.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Constants.priceLabelTrailing),
             $0.firstBaselineAnchor.constraint(equalTo: categoryLabel.firstBaselineAnchor)
         ]}
-    }
-    
-}
-
-// MARK: - Private
-
-private extension TransactionCell {
-    
-    func configureAppearance() {
-        selectionStyle = .none
-        backgroundColor = .clear
     }
     
 }

@@ -196,7 +196,7 @@ class CurrencyView: BaseView {
     
     // MARK: - Overrides
     
-    override func initialize() {
+    override func commonInit() {
         enableTheme(for: self)
         
         addViews()

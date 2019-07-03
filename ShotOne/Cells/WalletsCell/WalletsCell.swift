@@ -8,7 +8,7 @@
 
 import TableKit
 
-class WalletsCell: UITableViewCell {
+class WalletsCell: BaseTableViewCell {
     
     // MARK: - Constants
     
@@ -36,18 +36,20 @@ class WalletsCell: UITableViewCell {
         return view
     }()
     
-    // MARK: - Init
+    // MARK: - Views
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        addViews()
-        configureConstraints()
-        configureAppearance()
+    override func addViews() {
+        contentView.addSubviews(
+            cryptoView,
+            dollarsView
+        )
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    // MARK: - Constraints
+    
+    override func configureConstraints() {
+        configureCurrencyView1Constraints()
+        configureCurrencyView2Constraints()
     }
     
 }
@@ -73,27 +75,9 @@ extension WalletsCell: ConfigurableCell {
     
 }
 
-// MARK: - Views
-
-private extension WalletsCell {
-    
-    func addViews() {
-        contentView.addSubviews(
-            cryptoView,
-            dollarsView
-        )
-    }
-    
-}
-
 // MARK: - Constraints
 
 private extension WalletsCell {
-    
-    func configureConstraints() {
-        configureCurrencyView1Constraints()
-        configureCurrencyView2Constraints()
-    }
     
     func configureCurrencyView1Constraints() {
         cryptoView.activate {[
@@ -112,17 +96,6 @@ private extension WalletsCell {
             $0.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.sideMargin),
             $0.leadingAnchor.constraint(equalTo: cryptoView.trailingAnchor, constant: Constants.spacing)
         ]}
-    }
-    
-}
-
-// MARK: - Private
-
-private extension WalletsCell {
-    
-    func configureAppearance() {
-        selectionStyle = .none
-        backgroundColor = .clear
     }
     
 }

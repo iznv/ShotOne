@@ -100,7 +100,7 @@ class WalletView: BaseView {
     
     // MARK: - Init
     
-    override func initialize() {
+    override func commonInit() {
         enableTheme(for: self)
         
         addViews()

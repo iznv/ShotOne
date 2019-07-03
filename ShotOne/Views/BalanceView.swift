@@ -65,7 +65,7 @@ class BalanceView: BaseView {
     
     // MARK: - Init
     
-    override func initialize() {
+    override func commonInit() {
         addViews()
         configureConstraints()
     }

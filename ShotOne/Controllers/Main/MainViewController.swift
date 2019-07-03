@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController<MainViewModel> {
     
     // MARK: - Constants
     
@@ -162,15 +162,36 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         enableTheme(for: view)
         
-        addViews()
-        configureConstraints()
-        
         userView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleTheme)))
-        
         addBottomSheet()
+    }
+    
+    // MARK: - Subviews
+    
+    override func addViews() {
+        view.layer.addSublayer(gradientLayer)
+        
+        view.addSubviews(
+            backgroundImageView,
+            userView,
+            balanceView,
+            walletsContainerView,
+            cryptoWalletView,
+            dollarsWalletView
+        )
+    }
+    
+    // MARK: - Constraints
+    
+    override func configureConstraints() {
+        configureBackgroundImageViewConstraints()
+        configureUserViewConstraints()
+        configureBalanceViewConstraints()
+        configureWalletsContainerViewConstraints()
+        configureCryptoWalletViewConstraints()
+        configureDollarsWalletViewConstraints()
     }
     
     // MARK: - Overrides
@@ -217,37 +238,9 @@ private extension MainViewController {
     
 }
 
-// MARK: - Subviews
-
-private extension MainViewController {
-    
-    func addViews() {
-        view.layer.addSublayer(gradientLayer)
-        
-        view.addSubviews(
-            backgroundImageView,
-            userView,
-            balanceView,
-            walletsContainerView,
-            cryptoWalletView,
-            dollarsWalletView
-        )
-    }
-    
-}
-
 // MARK: - Constraints
 
 private extension MainViewController {
-    
-    func configureConstraints() {
-        configureBackgroundImageViewConstraints()
-        configureUserViewConstraints()
-        configureBalanceViewConstraints()
-        configureWalletsContainerViewConstraints()
-        configureCryptoWalletViewConstraints()
-        configureDollarsWalletViewConstraints()
-    }
     
     func configureBackgroundImageViewConstraints() {
         backgroundImageView.activate {[

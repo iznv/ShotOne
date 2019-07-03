@@ -10,20 +10,20 @@ import UIKit
 
 class BaseView: UIView {
     
-    // MARK: - Life Cycle
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        initialize()
+        commonInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        initialize()
+        commonInit()
     }
     
     // MARK: - To Override
     
-    func initialize() { }
+    func commonInit() { }
     
 }

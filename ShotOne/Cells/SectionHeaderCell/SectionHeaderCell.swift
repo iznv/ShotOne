@@ -8,7 +8,7 @@
 
 import TableKit
 
-class SectionHeaderCell: UITableViewCell {
+class SectionHeaderCell: BaseTableViewCell {
     
     // MARK: - Constants
     
@@ -30,18 +30,21 @@ class SectionHeaderCell: UITableViewCell {
     
     // MARK: - Init
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+    override func commonInit() {
+        super.commonInit()
         enableTheme(for: self)
-        
-        addViews()
-        configureConstraints()
-        configureAppearance()
+    }
+
+    // MARK: - Views
+    
+    override func addViews() {
+        contentView.addSubview(titleLabel)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    // MARK: - Constraints
+    
+    override func configureConstraints() {
+        configureTitleLabelConstraints()
     }
     
 }
@@ -68,41 +71,14 @@ extension SectionHeaderCell: Themeable {
     
 }
 
-// MARK: - Views
-
 private extension SectionHeaderCell {
-    
-    func addViews() {
-        contentView.addSubview(titleLabel)
-    }
-    
-}
 
-// MARK: - Constraints
-
-private extension SectionHeaderCell {
-    
-    func configureConstraints() {
-        configureTitleLabelConstraints()
-    }
-    
     func configureTitleLabelConstraints() {
         titleLabel.activate {[
             $0.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.sideMargin),
             $0.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Constants.sideMargin),
             $0.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ]}
-    }
-    
-}
-
-// MARK: - Private
-
-private extension SectionHeaderCell {
-    
-    func configureAppearance() {
-        selectionStyle = .none
-        backgroundColor = .clear
     }
     
 }

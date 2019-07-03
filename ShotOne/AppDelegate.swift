@@ -29,7 +29,7 @@ extension AppDelegate: UIApplicationDelegate {
         configureUserDefaults()
         configureAppearance()
         
-        window?.rootViewController = MainViewController()
+        window?.rootViewController = MainViewController(viewModel: MainViewModel())
         window?.makeKeyAndVisible()
         
         return true
