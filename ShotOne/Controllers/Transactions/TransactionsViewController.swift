@@ -7,6 +7,7 @@
 //
 
 import TableKit
+import Utils
 
 class TransactionsViewController: BaseViewController<TransactionsViewModel> {
     

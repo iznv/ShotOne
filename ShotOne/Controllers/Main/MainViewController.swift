@@ -6,7 +6,7 @@
 //  Copyright © 2019 Ivan Zinovyev. All rights reserved.
 //
 
-import UIKit
+import Utils
 
 class MainViewController: BaseViewController<MainViewModel> {
     

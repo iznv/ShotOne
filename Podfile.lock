@@ -1,16 +1,21 @@
 PODS:
   - TableKit (2.9.0)
+  - Utils (0.0.5)
 
 DEPENDENCIES:
   - TableKit
+  - Utils
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - TableKit
+  https://github.com/iznv/Podspecs:
+    - Utils
 
 SPEC CHECKSUMS:
   TableKit: 2271557382915c5d8f25883044047a8568ab6400
+  Utils: 091e4436fd76da133f7662a7ad11e910c3bded8d
 
-PODFILE CHECKSUM: 2f6202103d00d782f9c65d448ebeb800736ab4ae
+PODFILE CHECKSUM: 129e19c262d8667cfaf60c51e8c76975654ea8db
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.7.4
