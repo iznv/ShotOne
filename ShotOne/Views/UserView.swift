@@ -61,24 +61,20 @@ class UserView: BaseView {
         }
     }
     
-    // MARK: - Init
+    // MARK: - Subviews
     
-    override func commonInit() {
-        addViews()
-        configureConstraints()
-    }
-    
-}
-
-// MARK: - Subviews
-
-private extension UserView {
-    
-    func addViews() {
+    override func addViews() {
         addSubviews(
             userPicImageView,
             titleLabel
         )
+    }
+    
+    // MARK: - Constraints
+    
+    override func configureConstraints() {
+        configureUserPicImageViewConstraints()
+        configureTitleLabelConstraints()
     }
     
 }
@@ -86,11 +82,6 @@ private extension UserView {
 // MARK: - Constraints
 
 private extension UserView {
-    
-    func configureConstraints() {
-        configureUserPicImageViewConstraints()
-        configureTitleLabelConstraints()
-    }
     
     func configureUserPicImageViewConstraints() {
         userPicImageView.activate {[

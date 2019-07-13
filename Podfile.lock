@@ -1,6 +1,6 @@
 PODS:
   - TableKit (2.9.0)
-  - Utils (0.0.5)
+  - Utils (0.0.6)
 
 DEPENDENCIES:
   - TableKit
@@ -14,7 +14,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   TableKit: 2271557382915c5d8f25883044047a8568ab6400
-  Utils: 091e4436fd76da133f7662a7ad11e910c3bded8d
+  Utils: 2727cbcd0b58539954fd6d1c043b48b6df8e237c
 
 PODFILE CHECKSUM: 129e19c262d8667cfaf60c51e8c76975654ea8db
 

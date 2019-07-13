@@ -101,11 +101,33 @@ class WalletView: BaseView {
     // MARK: - Init
     
     override func commonInit() {
+        super.commonInit()
         enableTheme(for: self)
-        
-        addViews()
-        configureConstraints()
-        configureAppearance()
+    }
+    
+    // MARK: - Subviews
+    
+    override func addViews() {
+        addSubviews(
+            backgroundImageView,
+            largeValueLabel,
+            valueLabel,
+            titleLabel
+        )
+    }
+    
+    // MARK: - Constraints
+    
+    override func configureConstraints() {
+        configureBackgroundImageViewConstraints()
+        configureLargeValueLabelConstraints()
+        configureValueLabelConstraints()
+        configureTitleLabelConstraints()
+    }
+    
+    override func configureAppearance() {
+        layer.cornerRadius = Constants.cornerRadius
+        layer.masksToBounds = true
     }
     
 }
@@ -120,31 +142,9 @@ extension WalletView: Themeable {
     
 }
 
-// MARK: - Subviews
-
-private extension WalletView {
-    
-    func addViews() {
-        addSubviews(
-            backgroundImageView,
-            largeValueLabel,
-            valueLabel,
-            titleLabel
-        )
-    }
-    
-}
-
 // MARK: - Constraints
 
 private extension WalletView {
-    
-    func configureConstraints() {
-        configureBackgroundImageViewConstraints()
-        configureLargeValueLabelConstraints()
-        configureValueLabelConstraints()
-        configureTitleLabelConstraints()
-    }
     
     func configureBackgroundImageViewConstraints() {
         backgroundImageView.activate {[
@@ -176,17 +176,6 @@ private extension WalletView {
             $0.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.Title.sideMargin),
             $0.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constants.Title.bottom)
         ]}
-    }
-    
-}
-
-// MARK: - Private
-
-private extension WalletView {
-    
-    func configureAppearance() {
-        layer.cornerRadius = Constants.cornerRadius
-        layer.masksToBounds = true
     }
     
 }

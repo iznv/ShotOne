@@ -63,24 +63,20 @@ class BalanceView: BaseView {
         }
     }
     
-    // MARK: - Init
+    // MARK: - Subviews
     
-    override func commonInit() {
-        addViews()
-        configureConstraints()
-    }
-    
-}
-
-// MARK: - Subviews
-
-private extension BalanceView {
-    
-    func addViews() {
+    override func addViews() {
         addSubviews(
             titleLabel,
             valueLabel
         )
+    }
+    
+    // MARK: - Constraints
+    
+    override func configureConstraints() {
+        configureTitleLabelConstraints()
+        configureValueLabelConstraints()
     }
     
 }
@@ -88,12 +84,7 @@ private extension BalanceView {
 // MARK: - Constraints
 
 private extension BalanceView {
-    
-    func configureConstraints() {
-        configureTitleLabelConstraints()
-        configureValueLabelConstraints()
-    }
-    
+
     func configureTitleLabelConstraints() {
         titleLabel.activate {[
             $0.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.titleLeading),

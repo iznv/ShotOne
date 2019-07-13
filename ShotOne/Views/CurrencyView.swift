@@ -194,13 +194,33 @@ class CurrencyView: BaseView {
         layoutBackgroundLayer()
     }
     
-    // MARK: - Overrides
+    // MARK: - Init
     
     override func commonInit() {
+        super.commonInit()
         enableTheme(for: self)
+    }
+    
+    // MARK: - Subviews
+    
+    override func addViews() {
+        layer.addSublayers(
+            backgroundLayer
+        )
         
-        addViews()
-        configureConstraints()
+        addSubviews(
+            barView,
+            valueLabel,
+            titleLabel
+        )
+    }
+    
+    // MARK: - Constraints
+    
+    override func configureConstraints() {
+        configureTitleLabelConstraints()
+        configureValueLabelConstraints()
+        configureBarViewConstraints()
     }
     
 }
@@ -222,24 +242,6 @@ extension CurrencyView: Themeable {
     
 }
 
-// MARK: - Subviews
-
-private extension CurrencyView {
-    
-    func addViews() {
-        layer.addSublayers(
-            backgroundLayer
-        )
-        
-        addSubviews(
-            barView,
-            valueLabel,
-            titleLabel
-        )
-    }
-    
-}
-
 // MARK: - Layout
 
 private extension CurrencyView {
@@ -252,13 +254,7 @@ private extension CurrencyView {
     
     // MARK: - Auto
     
-    func configureConstraints() {
-        layoutTitleLabel()
-        layoutValueLabel()
-        layoutBarView()
-    }
-    
-    func layoutTitleLabel() {
+    func configureTitleLabelConstraints() {
         titleLabel.activate {[
             $0.widthAnchor.constraint(equalTo: widthAnchor),
             $0.topAnchor.constraint(equalTo: valueLabel.bottomAnchor, constant: Constants.Title.topMargin),
@@ -266,7 +262,7 @@ private extension CurrencyView {
         ]}
     }
     
-    func layoutValueLabel() {
+    func configureValueLabelConstraints() {
         valueLabel.activate {[
             $0.leadingAnchor.constraint(equalTo: leadingAnchor),
             $0.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -274,7 +270,7 @@ private extension CurrencyView {
         ]}
     }
     
-    func layoutBarView() {
+    func configureBarViewConstraints() {
         barView.activate {[
             $0.widthAnchor.constraint(equalToConstant: Constants.Bar.width),
             $0.topAnchor.constraint(equalTo: topAnchor),
