@@ -9,7 +9,7 @@
 import TableKit
 import Utils
 
-class TransactionsViewController: BaseViewController<TransactionsViewModel> {
+class TransactionsViewController: BaseTableViewController<TransactionsViewModel> {
     
     // MARK: - Constants
     
@@ -45,27 +45,30 @@ class TransactionsViewController: BaseViewController<TransactionsViewModel> {
         return view
     }()
     
-    let tableView: UITableView = {
-        let view = UITableView()
-        
-        view.backgroundColor = .clear
-        view.separatorStyle = .none
-        view.contentInset = Constants.contentInset
-        
-        return view
-    }()
-    
     // MARK: - Properties
     
-    private lazy var tableDirector = TableDirector(tableView: tableView)
+    lazy var tableDirector = TableDirector(tableView: tableView)
+    
+    // MARK: - Computed Properties
+    
+    override var contentInset: UIEdgeInsets {
+        return Constants.contentInset
+    }
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         enableTheme(for: view)
-        
-        configureTableView()
+    }
+    
+    // MARK: - Table
+    
+    override func configureTableView() {
+        tableDirector.replace(with: [
+            transactionsSection,
+            walletsSection
+        ])
     }
     
     // MARK: - Subviews
@@ -73,9 +76,10 @@ class TransactionsViewController: BaseViewController<TransactionsViewModel> {
     override func addViews() {
         view.addSubviews(
             gradientView,
-            gripView,
-            tableView
+            gripView
         )
+        
+        super.addViews()
     }
     
     // MARK: - Constraints
@@ -99,16 +103,9 @@ extension TransactionsViewController: Themeable {
     
 }
 
-// MARK: - TableView
+// MARK: - Table
 
 private extension TransactionsViewController {
-    
-    func configureTableView() {
-        tableDirector.replace(with: [
-            transactionsSection,
-            walletsSection
-        ])
-    }
     
     // MARK: - Sections
     
