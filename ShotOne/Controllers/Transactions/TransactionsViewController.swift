@@ -60,6 +60,7 @@ class TransactionsViewController: BaseTableViewController<TransactionsViewModel>
     override func viewDidLoad() {
         super.viewDidLoad()
         enableTheme(for: view)
+        configureTableView()
     }
     
     // MARK: - Table
