@@ -1,6 +1,6 @@
 <div align="center"><img src="assets/demo.gif"></div>
 
-![xcode](https://img.shields.io/badge/xcode-11.3-default.svg)
+![xcode](https://img.shields.io/badge/xcode-11.4-default.svg)
 ![swift](https://img.shields.io/badge/swift-5-default.svg)
 ![ios](https://img.shields.io/badge/ios-12.1-default.svg)
 
