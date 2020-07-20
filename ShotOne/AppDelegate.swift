@@ -13,7 +13,7 @@ class AppDelegate: UIResponder {
     
     // MARK: - Properties
 
-    var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
+    lazy var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
     
     private let userDefaults = UserDefaults.standard
 
