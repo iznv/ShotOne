@@ -6,6 +6,8 @@
 //  Copyright © 2019 Ivan Zinovyev. All rights reserved.
 //
 
+import UIKit
+
 extension Theme {
     
     static let lightThemeId = "Light"
@@ -25,8 +27,22 @@ extension Theme {
         walletLargeValueAlpha: 0.07,
         shouldShowPathIconShadow: false,
         currencyViewLayerShadowOpacity: 0.1,
-        mainStatusBarWithOpenBottomPanelStyle: .default,
+        mainStatusBarWithOpenBottomPanelStyle: .defaultSupport13iOS,
         mainStatusBarWithClosedBottomPanelStyle: .lightContent
     )
+    
+}
+
+// MARK: - Private
+
+private extension UIStatusBarStyle {
+    
+    static var defaultSupport13iOS: UIStatusBarStyle {
+        if #available(iOS 13.0, *) {
+            return UIStatusBarStyle.darkContent
+        } else {
+            return UIStatusBarStyle.default
+        }
+    }
     
 }
