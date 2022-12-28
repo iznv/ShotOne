@@ -91,6 +91,16 @@ class TransactionsViewController: BaseTableViewController<TransactionsViewModel>
         configureTableViewConstraints()
     }
     
+    // MARK: - Appearance
+    
+    override func configureAppearance() {
+        super.configureAppearance()
+        
+        if #available(iOS 15.0, *) {
+            tableView.sectionHeaderTopPadding = 0
+        }
+    }
+    
 }
 
 // MARK: - Themeable
